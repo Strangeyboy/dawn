@@ -1,8 +1,16 @@
 @font-face {
-    font-family: 'test_shnekrftig';
+    font-family: 'Sohne';
     src: url('testsohne-kraftig-webfont.woff2') format('woff2'),
         url('testsohne-kraftig-webfont.woff') format('woff');
     font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ABCFavorit';
+    src: url('ABCFavorit-Medium-Trial.woff2') format('woff2'),
+        url('ABCFavorit-Medium-Trial.woff') format('woff');
+    font-weight: medium;
     font-style: normal;
 }
 
@@ -19,15 +27,40 @@
 .list-menu--inline .list-menu__item,
 .header__icon--cart {
     @apply px-6 py-3 rounded-full bg-[#F8F8F8] h-10 font-medium uppercase;
-    font-family: 'test_shnekrftig';
+    font-family: 'Sohne';
+
+    span {
+        @apply !no-underline;
+    }
 }
 
 .header__icons {
     @apply items-center gap-6;
 }
 
-/* footer */
+body:not(.index) #HeaderMenu-shop {
+    @apply bg-black;
 
+    span {
+        @apply text-white;
+    }
+}
+
+/* home page */
+.index .banner--large {
+    @apply !min-h-screen;
+
+    .banner__heading {
+        @apply uppercase text-[27px] text-left;
+        font-family: 'ABCFavorit';
+
+        em {
+            @apply !not-italic align-super text-[17px];
+        }
+    }
+}
+
+/* footer */
 .index .footer {
     @apply hidden;
 }
@@ -60,7 +93,6 @@ button.shopify-payment-button__button--unbranded,
 }
 
 /* listing page */
-
 .product-form__quantity {
     @apply hidden;
 }

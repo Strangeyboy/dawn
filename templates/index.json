@@ -3,24 +3,16 @@
     "image_banner": {
       "type": "image-banner",
       "blocks": {
-        "image_FKamrM": {
-          "type": "image",
+        "heading_i6JFLG": {
+          "type": "heading",
           "settings": {
-            "image": "shopify:\/\/shop_images\/innerpace-logo-white.svg",
-            "image_width": 300
-          }
-        },
-        "image_46BEkh": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/text-mission.svg",
-            "image_width": 620
+            "heading": "Innerpace<em>©<\/em> - to move with purpose and embrace the pursuit of progression and momentum.",
+            "heading_size": "h1"
           }
         }
       },
       "block_order": [
-        "image_FKamrM",
-        "image_46BEkh"
+        "heading_i6JFLG"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/home-bg.png",
@@ -35,38 +27,9 @@
         "stack_images_on_mobile": false,
         "show_text_below": false
       }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "image_banner"
   ]
 }

@@ -1,10 +1,21 @@
 @font-face {
-  font-family: 'test_shnekrftig';
+  font-family: 'Sohne';
 
   src: url('testsohne-kraftig-webfont.woff2') format('woff2'),
         url('testsohne-kraftig-webfont.woff') format('woff');
 
   font-weight: normal;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ABCFavorit';
+
+  src: url('ABCFavorit-Medium-Trial.woff2') format('woff2'),
+        url('ABCFavorit-Medium-Trial.woff') format('woff');
+
+  font-weight: medium;
 
   font-style: normal;
 }
@@ -36,12 +47,51 @@
   padding-bottom: 12px;
   font-weight: 500;
   text-transform: uppercase;
-  font-family: 'test_shnekrftig';
+  font-family: 'Sohne';
+  span {
+    text-decoration-line: none !important;
+  }
 }
 
 .header__icons {
   align-items: center;
   gap: 24px;
+}
+
+body:not(.index) #HeaderMenu-shop {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  span {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+}
+
+/* home page */
+
+.index .banner--large {
+  min-height: 100vh !important;
+  .banner__heading {
+    text-align: left;
+  }
+  .banner__heading {
+    font-size: 27px;
+  }
+  .banner__heading {
+    text-transform: uppercase;
+  }
+  .banner__heading {
+    font-family: 'ABCFavorit';
+    em {
+      vertical-align: super;
+    }
+    em {
+      font-size: 17px;
+    }
+    em {
+      font-style: normal !important;
+    }
+  }
 }
 
 /* footer */
@@ -818,6 +868,11 @@ video {
   background-color: rgb(248 248 248 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-blue-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
@@ -873,6 +928,18 @@ video {
   padding-bottom: 12px;
 }
 
+.align-super {
+  vertical-align: super;
+}
+
+.text-\[17px\] {
+  font-size: 17px;
+}
+
+.text-\[27px\] {
+  font-size: 27px;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -887,6 +954,10 @@ video {
 
 .italic {
   font-style: italic;
+}
+
+.\!not-italic {
+  font-style: normal !important;
 }
 
 .underline {
