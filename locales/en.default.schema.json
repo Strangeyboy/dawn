@@ -1291,6 +1291,14 @@
             }
           }
         },
+        "image": {
+          "name": "Image",
+          "settings": {
+            "image": {
+              "label": "Image"
+            }
+          }
+        },
         "text": {
           "name": "Text",
           "settings": {

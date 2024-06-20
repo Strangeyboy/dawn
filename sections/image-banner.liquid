@@ -115,7 +115,7 @@
       }}
     </div>
   {%- endif -%}
-  <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="px-6 py-12 md:px-20 md:py-16 w-full items-end flex banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
@@ -126,6 +126,15 @@
             >
               {{ block.settings.heading }}
             </h2>
+          {%- when 'image' -%}
+            <div class="banner__image">
+              <img
+                src="{{ block.settings.image | img_url: '100x100' }}"
+                height="{{ block.settings.image_height }}"
+                width="{{ block.settings.image_width }}"
+                alt="{{ block.settings.image.alt }}"
+              >
+            </div>
           {%- when 'text' -%}
             <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
               <p>{{ block.settings.text }}</p>
@@ -400,6 +409,27 @@
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "image",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 100,
+          "max": 1000,
+          "step": 10,
+          "default": 100,
+          "label": "Width"
         }
       ]
     },

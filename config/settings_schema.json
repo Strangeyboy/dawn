@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Dawn",
+    "theme_name": "Innerpace",
     "theme_version": "14.0.0",
     "theme_author": "Shopify",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
@@ -13,6 +13,11 @@
       {
         "type": "image_picker",
         "id": "logo",
+        "label": "t:settings_schema.logo.settings.logo_image.label"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_white",
         "label": "t:settings_schema.logo.settings.logo_image.label"
       },
       {
