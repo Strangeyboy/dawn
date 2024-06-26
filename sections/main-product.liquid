@@ -1,6 +1,6 @@
 <product-info
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="section-{{ section.id }}-padding"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
   data-update-url="true"
@@ -71,7 +71,7 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
-    <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+    <div class="product product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
@@ -305,14 +305,14 @@
                                 </dt>
                                 <dd>
                                   <s class="variant-item__old-price">
-                                    {{ variant_price_compare | money_with_currency }}
+                                    {{ variant_price_compare | money_without_trailing_zeros }}
                                   </s>
                                 </dd>
                               </dl>
                             {%- endif -%}
                             {%- if current_qty_for_volume_pricing < volume_pricing_array.last.minimum_quantity -%}
                               {%- assign variant_price = product.selected_or_first_available_variant.price
-                                | money_with_currency
+                                | money_without_trailing_zeros
                               -%}
                               <span class="price-per-item--current">
                                 {{- 'products.product.volume_pricing.price_at_each' | t: price: variant_price -}}
@@ -320,7 +320,7 @@
                             {%- else -%}
                               {%- for price_break in volume_pricing_array -%}
                                 {%- if current_qty_for_volume_pricing >= price_break.minimum_quantity -%}
-                                  {%- assign price_break_price = price_break.price | money_with_currency -%}
+                                  {%- assign price_break_price = price_break.price | money_without_trailing_zeros -%}
                                   <span class="price-per-item--current">
                                     {{-
                                       'products.product.volume_pricing.price_at_each'
@@ -334,7 +334,7 @@
                           </div>
                         {%- else -%}
                           {%- assign variant_price = product.selected_or_first_available_variant.price
-                            | money_with_currency
+                            | money_without_trailing_zeros
                           -%}
                           {%- assign variant_price_compare = product.selected_or_first_available_variant.compare_at_price -%}
                           <div class="price-per-item">
@@ -345,7 +345,7 @@
                                 </dt>
                                 <dd>
                                   <s class="variant-item__old-price">
-                                    {{ variant_price_compare | money_with_currency }}
+                                    {{ variant_price_compare | money_without_trailing_zeros }}
                                   </s>
                                 </dd>
                                 <dt class="visually-hidden">
@@ -401,14 +401,14 @@
                           <li>
                             <span>{{ product.selected_or_first_available_variant.quantity_rule.min }}+</span>
                             {%- assign price = product.selected_or_first_available_variant.price
-                              | money_with_currency
+                              | money_without_trailing_zeros
                             -%}
                             <span data-text="{{ 'products.product.volume_pricing.price_at_each' | t: price: variant_price }}">
                               {{- 'sections.quick_order_list.each' | t: money: price -}}
                             </span>
                           </li>
                           {%- for price_break in product.selected_or_first_available_variant.quantity_price_breaks -%}
-                            {%- assign price_break_price = price_break.price | money_with_currency -%}
+                            {%- assign price_break_price = price_break.price | money_without_trailing_zeros -%}
                             <li class="{%- if forloop.index >= 3 -%}show-more-item hidden{%- endif -%}">
                               <span>
                                 {{- price_break.minimum_quantity -}}
@@ -2075,12 +2075,6 @@
       "id": "enable_sticky_info",
       "default": true,
       "label": "t:sections.main-product.settings.enable_sticky_info.label"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
     },
     {
       "type": "header",

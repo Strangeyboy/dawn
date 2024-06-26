@@ -45,7 +45,7 @@
       class="
         card card--{{ settings.card_style }}
         {% if card_product.featured_media %} card--media{% else %} card--text{% endif %}
-        {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }} gradient{% endif %}
+        {% if settings.card_style == 'card' %}{% endif %}
         {% if image_shape and image_shape != 'default' %} card--shape{% endif %}
         {% if extend_height %} card--extend-height{% endif %}
         {% if card_product.featured_media == nil and settings.card_style == 'card' %} ratio{% endif %}
@@ -54,7 +54,7 @@
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
       <div
-        class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
+        class="card__inner {% if settings.card_style == 'standard' %}{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
       >
         {%- if card_product.featured_media -%}
@@ -106,7 +106,7 @@
             </div>
           </div>
         {%- endif -%}
-        <div class="card__content">
+        <div class="card__content card__inner-content">
           <div class="card__information">
             <h3
               class="card__heading"
@@ -265,7 +265,7 @@
                         <li>
                           <span>{{ card_product.selected_or_first_available_variant.quantity_rule.min }}+</span>
                           {%- assign price = card_product.selected_or_first_available_variant.price
-                            | money_with_currency
+                            | money_without_trailing_zeros
                           -%}
                           <span>{{ 'sections.quick_order_list.each' | t: money: price }}</span>
                         </li>
@@ -275,7 +275,7 @@
                               {{- price_break.minimum_quantity -}}
                               <span aria-hidden="true">+</span></span
                             >
-                            {%- assign price = price_break.price | money_with_currency -%}
+                            {%- assign price = price_break.price | money_without_trailing_zeros -%}
                             <span> {{ 'sections.quick_order_list.each' | t: money: price }}</span>
                           </li>
                         {%- endfor -%}
