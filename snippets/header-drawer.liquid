@@ -16,12 +16,12 @@
         {% render 'icon-close' %}
       </span>
     </summary>
-    <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
+    <div id="menu-drawer" class="menu-drawer motion-reduce bg-white">
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
-          <nav class="menu-drawer__navigation">
+          <nav class="menu-drawer__navigation !pt-[86px] flex flex-col space-between justify-between h-full">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
-              {%- for link in section.settings.menu.links -%}
+              {%- for link in section.settings.menu_mobile.links -%}
                 <li>
                   {%- if link.links != blank -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
@@ -50,7 +50,7 @@
                                   <a
                                     id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                     href="{{ childlink.url }}"
-                                    class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                    class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %} text-5xl"
                                     {% if childlink.current %}
                                       aria-current="page"
                                     {% endif %}
@@ -120,6 +120,24 @@
                     </a>
                   {%- endif -%}
                 </li>
+              {%- endfor -%}
+            </ul>
+            <ul>
+              {%- for link in section.settings.menu_mobile_footer.links -%}
+                {%- if link.links == blank -%}
+                  <li>
+                    <a
+                      id="HeaderDrawer-{{ link.handle }}"
+                      href="{{ link.url }}"
+                      class="menu-drawer__menu-item mobile-footer_menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
+                      {% if link.current %}
+                        aria-current="page"
+                      {% endif %}
+                    >
+                      {{ link.title | escape }}
+                    </a>
+                  </li>
+                {%- endif -%}
               {%- endfor -%}
             </ul>
           </nav>

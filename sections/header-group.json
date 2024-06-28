@@ -8,6 +8,8 @@
         "logo_position": "middle-center",
         "menu_left": "main-menu",
         "menu_right": "menu-left",
+        "menu_mobile": "menu-mobile",
+        "menu_mobile_footer": "footer",
         "menu_type_desktop": "dropdown",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,

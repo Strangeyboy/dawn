@@ -51,12 +51,16 @@
 
 .index .list-menu--inline .list-menu__item,
 .index .header__icon--cart {
-    @apply bg-white invert;
+    @media screen and (min-width: 990px) {
+        filter: invert();
+    }
+
+    @apply bg-white;
 }
 
 .list-menu--inline .list-menu__item,
 .header__icon--cart {
-    @apply px-6 py-3 rounded-full bg-[#F8F8F8] h-10 font-medium uppercase;
+    @apply px-6 py-3 rounded-full bg-[#F8F8F8] font-medium uppercase leading-none;
     font-family: 'Sohne';
 
     span {
@@ -74,6 +78,18 @@ body:not(.index) #HeaderMenu-shop {
     span {
         @apply text-white;
     }
+}
+
+.header {
+    @apply relative;
+}
+
+.menu-drawer__menu-item:not(.mobile-footer_menu-item) {
+    @apply !text-[44px] uppercase font-bold;
+}
+
+summary.header__icon--menu span {
+    @apply absolute w-[44px] h-[44px] z-10;
 }
 
 /* home page */
@@ -130,7 +146,7 @@ body.product-page {
 
 body.product-page:after {
     content: '';
-    @apply bg-[#F1F1F1] h-full w-1/2 fixed top-0 left-0 bottom-0 z-[-1];
+    @apply md:bg-[#F1F1F1] h-full w-1/2 fixed top-0 left-0 bottom-0 z-[-1];
 }
 
 .product-form__quantity {
@@ -154,6 +170,28 @@ body.product-page:after {
 .swatch {
     @apply h-24 !w-20 !rounded-xl !bg-[#F1F1F1] !bg-no-repeat !border-none;
     background-size: 90% !important;
+}
+
+.swatch-image.swatch-group-selector .star-set-image {
+    @apply !h-[100px] !w-[80px] bg-contain bg-center border-none !bg-[#F1F1F1] rounded-md;
+    background-size: 80%;
+}
+
+.swatch-image.swatch-group-selector {
+    @apply border-white !p-0;
+
+}
+
+.swatch-image.swatch-group-selector.swatch-selected {
+    @apply !border !border-black !rounded-md;
+}
+
+.slider-mobile-gutter {
+    @apply bg-[#F1F1F1];
+}
+
+variant-swatch-king {
+    @apply w-full bg-white max-md:rounded-[16px] max-md:p-6 mb-[2px];
 }
 
 /* cart page */
@@ -207,4 +245,21 @@ body.product-page:after {
             }
         }
     }
+}
+
+/* cart drawer */
+.drawer__close {
+    @apply !flex items-center justify-center !relative !top-0;
+}
+
+.cart-item__totals.right {
+    @apply opacity-0;
+}
+
+.quantity:after {
+    box-shadow: none !important;
+}
+
+.drawer__inner {
+    @apply !px-6;
 }
