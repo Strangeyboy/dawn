@@ -2303,7 +2303,8 @@ input[type='checkbox'] {
 }
 
 .shopify-section-header-sticky {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
 }
 
@@ -2338,6 +2339,10 @@ input[type='checkbox'] {
   .section-header:not(.scrolled-past-header) .header-wrapper {
     background-color: transparent !important;
   }
+}
+
+.scrolled-past-header .header-wrapper {
+  background-color: white;
 }
 
 .index .header-wrapper {
@@ -2513,7 +2518,6 @@ input[type='checkbox'] {
   display: flex;
   grid-area: icons;
   justify-self: end;
-  padding-right: 0.8rem;
 }
 
 .header__icons .shopify-app-block {

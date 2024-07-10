@@ -28,11 +28,11 @@
     data-product-id="{{ product.id }}"
   >
     {% if recommendations.performed and recommendations.products_count > 0 %}
-      <h2 class="related-products__heading inline-richtext w-full text-center {{ section.settings.heading_size }}">
+      <h2 class="related-products__heading inline-richtext w-full max-md:!pl-6 md:text-center {{ section.settings.heading_size }}">
         {{ section.settings.heading }}
       </h2>
       <ul
-        class="grid product-grid !gap-1 grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+        class="max-md:ml-6 max-md:!gap-4 grid product-grid md:!gap-1 grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down hide-scroll-bar overflow-x-scroll"
         role="list"
       >
         {% assign skip_card_product_styles = false %}

@@ -85,7 +85,7 @@ body:not(.index) #HeaderMenu-shop {
 }
 
 .menu-drawer__menu-item:not(.mobile-footer_menu-item) {
-    @apply !text-[44px] uppercase font-bold;
+    @apply !text-[44px] uppercase font-bold border-b border-[#CCCCCC];
 }
 
 summary.header__icon--menu span {
@@ -132,6 +132,14 @@ summary.header__icon--menu span {
     }
 }
 
+.footer-block__heading {
+    @apply !text-[35px] uppercase leading-[36.50px] font-medium;
+    letter-spacing: -0.175px;
+}
+
+.footer .list-menu__item--link {
+    @apply font-medium !pb-0 !text-[16px] leading-[27px];
+}
 
 /* general */
 
@@ -141,16 +149,32 @@ summary.header__icon--menu span {
 
 /* listing page */
 body.product-page {
-    @apply bg-white;
+    @apply bg-[white];
 
     .product__tax {
         @apply mt-0 text-right !font-normal text-[#8E8E8E];
+    }
+
+    .product-grid {
+        @apply flex-nowrap;
+    }
+
+    #shopify-section-template--22922809082172__related-products {
+        @apply bg-[#f1f1f1];
+    }
+
+    .product-popup-modal__opener {
+        @apply max-md:hidden;
     }
 }
 
 body.product-page:after {
     content: '';
     @apply md:bg-[#F1F1F1] h-full w-1/2 fixed top-0 left-0 bottom-0 z-[-1];
+}
+
+body.product-page sticky-header::after {
+    @apply bg-white w-full h-1/2 absolute top-0 left-0 z-[-1];
 }
 
 .product-form__quantity {
@@ -199,15 +223,25 @@ body.product-page:after {
 }
 
 variant-swatch-king {
-    @apply w-full max-md:rounded-[16px] max-md:p-6 mb-[2px];
+    @apply w-full max-md:rounded-[16px] mb-[2px] flex !my-0;
+
+    .swatches,
+    .swatch-single {
+        @apply max-md:mb-[2px] max-md:mt-[0px];
+    }
 }
 
 .swatch-view.swatch-view-button {
-    @apply grid grid-flow-col justify-stretch gap-[5px];
+    @apply grid grid-flow-col justify-stretch gap-[5px] !w-[initial] max-w-full;
+    width: initial !important;
+}
+
+.swatch-view-item {
+    @apply !w-[initial];
 }
 
 .swatch-view.swatch-view-button li {
-    @apply !m-0 !rounded-full;
+    @apply !m-0 !rounded-full !w-full;
 
     .swatch-button,
     .swatch-button-title-text {
@@ -217,6 +251,22 @@ variant-swatch-king {
 
 .swatch-variant-name {
     @apply !uppercase;
+}
+
+.product__info-wrapper .swatches.swatches-type-products {
+    @apply mb-0;
+
+    div:nth-child(2) .swatch-single {
+        @apply rounded-b-none mb-0;
+    }
+}
+
+.product__info-wrapper .swatch-single {
+    @apply bg-white max-md:rounded-[16px] max-md:p-6 max-md:mb-[2px];
+}
+
+.product__accordion svg {
+    @apply !w-3 !h-3;
 }
 
 /* cart page */
@@ -303,4 +353,71 @@ variant-swatch-king {
 
 .quantity__input {
     @apply !w-[45px] absolute top-0 bottom-0 left-0 right-0 m-auto;
+}
+
+/* about page */
+body.page-about {
+    @apply bg-black text-[#CDFFA5];
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-[inherit];
+    }
+
+    blockquote {
+        @apply text-[#CDFFA5] pl-0 text-[90px] tracking-[-4.5px] text-center md:text-[170px] lg:text-[266.16px] font-bold md:tracking-[-13.308px];
+    }
+
+    h1 {
+        @apply text-[50px] md:text-[110px] font-bold leading-[42px] md:leading-[94px] tracking-[-2.5px] md:tracking-[-5.5px];
+    }
+
+    .content-for-layout {
+        @apply text-center mt-[108px] pb-[90px] md:pb-[135px];
+
+        svg {
+            @apply w-full mt-12 mb-20;
+        }
+
+        P {
+            @apply text-[33px] tracking-[-1.65px] leading-[106.061%] md:leading-[97.143%] md:tracking-[-3.5px] md:text-[70px] font-bold max-w-[971px] mx-auto mt-[98px];
+        }
+    }
+
+    .header__heading-logo-wrapper {
+        filter: brightness(0) saturate(100%) invert(92%) sepia(67%) saturate(393%) hue-rotate(35deg) brightness(107%) contrast(101%);
+    }
+
+    #HeaderMenu-about {
+        @apply bg-[#404040] text-white;
+
+        span {
+            @apply text-white;
+        }
+    }
+
+    #HeaderMenu-shop {
+        @apply bg-[#CDFFA5] !text-black;
+
+        span {
+            @apply text-black;
+        }
+    }
+
+    .main-page-title.page-title {
+        @apply hidden;
+    }
+
+    .header__icon {
+        @apply bg-[#CDFFA5];
+    }
+
+    .page-width--narrow {
+        @apply !max-w-[initial];
+    }
+
 }

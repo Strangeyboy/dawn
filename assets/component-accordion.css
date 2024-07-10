@@ -10,11 +10,11 @@
   flex: 1;
 }
 
-.accordion .summary__title + .icon-caret {
+.accordion .summary__title+.icon-caret {
   height: calc(var(--font-heading-scale) * 0.6rem);
 }
 
-.accordion + .accordion {
+.accordion+.accordion {
   margin-top: 0;
   border-top: none;
 }
@@ -42,8 +42,9 @@
   width: calc(var(--font-heading-scale) * 2rem);
 }
 
-.accordion details[open] > summary .icon-caret {
-  transform: rotate(180deg);
+.accordion details[open]>summary .icon-caret {
+  transform: rotate(-45deg);
+  transition: transform var(--duration-default) ease;
 }
 
 .accordion__content {

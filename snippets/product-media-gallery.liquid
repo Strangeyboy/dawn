@@ -125,7 +125,7 @@
         {%- endunless -%}
       {%- endfor -%}
     </ul>
-    <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
+    <div class="!justify-between slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
       <button
         type="button"
         class="slider-button slider-button--prev"
@@ -134,7 +134,7 @@
       >
         {% render 'icon-caret' %}
       </button>
-      <div class="slider-counter caption">
+      <div class="slider-counter text-[12px]">
         <span class="slider-counter--current">1</span>
         <span aria-hidden="true"> / </span>
         <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>

@@ -35,14 +35,8 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
+            "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
-          }
-        },
-        "description": {
-          "type": "description",
-          "disabled": true,
-          "settings": {
           }
         },
         "popup_description_kffERT": {
@@ -57,6 +51,20 @@
             "text": "{{ block.settings.page.title }}",
             "page": "delivery-returns"
           }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "collapsible_tab_cXdKhr": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "{{ block.settings.page.title }}",
+            "icon": "none",
+            "content": "",
+            "page": "delivery-returns"
+          }
         }
       },
       "block_order": [
@@ -66,9 +74,10 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
         "popup_description_kffERT",
-        "popup_f3minH"
+        "popup_f3minH",
+        "description",
+        "collapsible_tab_cXdKhr"
       ],
       "settings": {
         "enable_sticky_info": true,
