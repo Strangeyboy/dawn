@@ -70,15 +70,15 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-  <div class="max-md:!px-0 overflow-x-hidden">
+  <div class="max-md:!px-0 max-md:overflow-x-hidden">
     <div class="product product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
-      <div class="product__info-wrapper flex justify-center grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="product__info-wrapper justify-center grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
-          class="md:max-w-[470px] md:m-8 w-full product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %} mx-[-15px]"
+          class="md:max-w-[470px] !mx-auto md:m-8 w-full product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %} mx-[-15px]"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -94,9 +94,11 @@
                   {{- block.settings.text -}}
                 </p>
                 <div class="flex flex-col justify-between w-full bg-white max-md:rounded-[16px] max-md:p-6 max-md:!mb-[2px]">
-                  <div class="flex flex-row justify-between w-full">
+                  <div class="flex flex-row justify-between w-full items-end">
                     <div class="product__title !mb-0" {{ block.shopify_attributes }}>
-                      <h1 class="text-[20px]">{{ product.title | escape }}</h1>
+                      <h1 class="text-[18px] md:text-[30px] max-w-[310px] text-balance leading-[99.2%] tracking-[-0.36px] md:tracking-[-0.9px]">
+                        {{ product.title | escape }}
+                      </h1>
                       <a href="{{ product.url }}" class="product__title">
                         <h2 class="h1">
                           {{ product.title | escape }}
@@ -118,7 +120,7 @@
                     {%- endif -%}
                   </div>
                   {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
-                    <div class="product__tax caption rte">
+                    <div class="product__tax caption rte hidden">
                       {%- if cart.duties_included and cart.taxes_included -%}
                         {{ 'products.product.duties_and_taxes_included' | t }}
                       {%- elsif cart.taxes_included -%}

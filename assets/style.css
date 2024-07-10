@@ -132,6 +132,10 @@ summary.header__icon--menu span {
     }
 }
 
+.newsletter-form__button svg.icon.icon-arrow {
+    @apply w-[24px] h-[24px] md:w-[48px] md:h-[48px]
+}
+
 .footer-block__heading {
     @apply !text-[35px] uppercase leading-[36.50px] font-medium;
     letter-spacing: -0.175px;
@@ -219,7 +223,24 @@ body.product-page sticky-header::after {
 }
 
 .swatch-option-name {
-    @apply uppercase;
+    @apply font-medium;
+}
+
+.swatch-option-name,
+.swatch-variant-name {
+    @apply !capitalize text-black text-[14px] md:text-[16px] tracking-[-0.16px];
+}
+
+.swatch-button-title-text {
+    @apply !text-[12px] md:text-[14px];
+}
+
+.swatch-variant-name:before {
+    content: '-';
+}
+
+.swatch-split-symbol {
+    @apply hidden;
 }
 
 variant-swatch-king {
@@ -232,7 +253,7 @@ variant-swatch-king {
 }
 
 .swatch-view.swatch-view-button {
-    @apply grid grid-flow-col justify-stretch gap-[5px] !w-[initial] max-w-full;
+    @apply grid grid-flow-col justify-stretch gap-[5px] !w-[initial] max-w-full mb-0;
     width: initial !important;
 }
 
@@ -245,12 +266,8 @@ variant-swatch-king {
 
     .swatch-button,
     .swatch-button-title-text {
-        @apply !h-[60px] flex justify-center items-center w-full !rounded-full;
+        @apply max-md:max-h-[40px] !h-[60px] flex justify-center items-center w-full !rounded-full;
     }
-}
-
-.swatch-variant-name {
-    @apply !uppercase;
 }
 
 .product__info-wrapper .swatches.swatches-type-products {

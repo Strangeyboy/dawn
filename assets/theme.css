@@ -220,6 +220,18 @@ summary.header__icon--menu span {
   }
 }
 
+.newsletter-form__button svg.icon.icon-arrow {
+  height: 24px;
+  width: 24px;
+}
+
+@media (min-width: 768px) {
+  .newsletter-form__button svg.icon.icon-arrow {
+    height: 48px;
+    width: 48px;
+  }
+}
+
 .footer-block__heading {
   font-size: 35px !important;
   font-weight: 500;
@@ -363,7 +375,41 @@ body.product-page sticky-header::after {
 }
 
 .swatch-option-name {
-  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.swatch-option-name,
+.swatch-variant-name {
+  font-size: 14px;
+  text-transform: capitalize !important;
+  letter-spacing: -0.16px;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+@media (min-width: 768px) {
+  .swatch-option-name,
+.swatch-variant-name {
+    font-size: 16px;
+  }
+}
+
+.swatch-button-title-text {
+  font-size: 12px !important;
+}
+
+@media (min-width: 768px) {
+  .swatch-button-title-text {
+    font-size: 14px;
+  }
+}
+
+.swatch-variant-name:before {
+  content: '-';
+}
+
+.swatch-split-symbol {
+  display: none;
 }
 
 variant-swatch-king {
@@ -396,6 +442,7 @@ variant-swatch-king {
 }
 
 .swatch-view.swatch-view-button {
+  margin-bottom: 0;
   display: grid;
   max-width: 100%;
   grid-auto-flow: column;
@@ -436,10 +483,12 @@ variant-swatch-king {
     .swatch-button-title-text {
     border-radius: 9999px !important;
   }
-}
-
-.swatch-variant-name {
-  text-transform: uppercase !important;
+  @media not all and (min-width: 768px) {
+    .swatch-button,
+    .swatch-button-title-text {
+      max-height: 40px;
+    }
+  }
 }
 
 .product__info-wrapper .swatches.swatches-type-products {
@@ -1494,6 +1543,11 @@ video {
   margin: 32px;
 }
 
+.\!mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .mx-\[-15px\] {
   margin-left: -15px;
   margin-right: -15px;
@@ -1686,6 +1740,10 @@ video {
   height: 132px;
 }
 
+.h-\[24px\] {
+  height: 24px;
+}
+
 .h-\[44px\] {
   height: 44px;
 }
@@ -1750,6 +1808,10 @@ video {
   width: 107px;
 }
 
+.w-\[24px\] {
+  width: 24px;
+}
+
 .w-\[44px\] {
   width: 44px;
 }
@@ -1774,8 +1836,16 @@ video {
   max-width: 114px;
 }
 
+.max-w-\[310px\] {
+  max-width: 310px;
+}
+
 .max-w-\[971px\] {
   max-width: 971px;
+}
+
+.max-w-full {
+  max-width: 100%;
 }
 
 .flex-shrink {
@@ -1902,6 +1972,14 @@ video {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.text-wrap {
+  text-wrap: wrap;
+}
+
+.text-balance {
+  text-wrap: balance;
 }
 
 .\!rounded {
@@ -2275,6 +2353,10 @@ video {
   line-height: 1 !important;
 }
 
+.\!text-\[12px\] {
+  font-size: 12px !important;
+}
+
 .\!text-\[16px\] {
   font-size: 16px !important;
 }
@@ -2304,6 +2386,10 @@ video {
 
 .text-\[12px\] {
   font-size: 12px;
+}
+
+.text-\[14px\] {
+  font-size: 14px;
 }
 
 .text-\[17px\] {
@@ -2351,6 +2437,10 @@ video {
   font-weight: 700;
 }
 
+.font-light {
+  font-weight: 300;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -2365,6 +2455,10 @@ video {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.\!capitalize {
+  text-transform: capitalize !important;
 }
 
 .capitalize {
@@ -2395,12 +2489,24 @@ video {
   line-height: 42px;
 }
 
+.leading-\[99\.2\%\] {
+  line-height: 99.2%;
+}
+
 .\!tracking-tight {
   letter-spacing: -0.025em !important;
 }
 
 .\!tracking-tighter {
   letter-spacing: -0.05em !important;
+}
+
+.tracking-\[-0\.16px\] {
+  letter-spacing: -0.16px;
+}
+
+.tracking-\[-0\.36px\] {
+  letter-spacing: -0.36px;
 }
 
 .tracking-\[-1\.65px\] {
@@ -2554,8 +2660,20 @@ video {
     display: none;
   }
 
+  .max-md\:max-h-\[40px\] {
+    max-height: 40px;
+  }
+
+  .max-md\:\!max-w-\[154px\] {
+    max-width: 154px !important;
+  }
+
   .max-md\:\!gap-4 {
     gap: 16px !important;
+  }
+
+  .max-md\:overflow-x-hidden {
+    overflow-x: hidden;
   }
 
   .max-md\:rounded-\[16px\] {
@@ -2647,8 +2765,16 @@ video {
     height: 90px !important;
   }
 
+  .md\:h-\[48px\] {
+    height: 48px;
+  }
+
   .md\:\!w-\[145px\] {
     width: 145px !important;
+  }
+
+  .md\:w-\[48px\] {
+    width: 48px;
   }
 
   .md\:max-w-\[470px\] {
@@ -2703,8 +2829,20 @@ video {
     font-size: 110px;
   }
 
+  .md\:text-\[14px\] {
+    font-size: 14px;
+  }
+
+  .md\:text-\[16px\] {
+    font-size: 16px;
+  }
+
   .md\:text-\[170px\] {
     font-size: 170px;
+  }
+
+  .md\:text-\[30px\] {
+    font-size: 30px;
   }
 
   .md\:text-\[60px\] {
@@ -2721,6 +2859,10 @@ video {
 
   .md\:leading-\[97\.143\%\] {
     line-height: 97.143%;
+  }
+
+  .md\:tracking-\[-0\.9px\] {
+    letter-spacing: -0.9px;
   }
 
   .md\:tracking-\[-13\.308px\] {

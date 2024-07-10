@@ -125,14 +125,14 @@
         {%- endunless -%}
       {%- endfor -%}
     </ul>
-    <div class="!justify-between slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
+    <div class="px-6 !justify-between slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
       <button
         type="button"
         class="slider-button slider-button--prev"
         name="previous"
         aria-label="{{ 'general.slider.previous_slide' | t }}"
       >
-        {% render 'icon-caret' %}
+        {% render 'icon-arrow' %}
       </button>
       <div class="slider-counter text-[12px]">
         <span class="slider-counter--current">1</span>
@@ -146,7 +146,7 @@
         name="next"
         aria-label="{{ 'general.slider.next_slide' | t }}"
       >
-        {% render 'icon-caret' %}
+        {% render 'icon-arrow-right' %}
       </button>
     </div>
   </slider-component>
