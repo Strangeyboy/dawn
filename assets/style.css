@@ -85,7 +85,8 @@ body:not(.index) #HeaderMenu-shop {
 }
 
 .menu-drawer__menu-item:not(.mobile-footer_menu-item) {
-    @apply !text-[44px] uppercase font-bold border-b border-[#CCCCCC];
+    @apply !text-[44px] uppercase font-bold pb-4;
+    border-bottom: solid 1px #CCCCCC;
 }
 
 summary.header__icon--menu span {
@@ -232,7 +233,7 @@ body.product-page sticky-header::after {
 }
 
 .swatch-button-title-text {
-    @apply !text-[12px] md:text-[14px];
+    @apply text-[12px] md:text-[14px];
 }
 
 .swatch-variant-name:before {
@@ -303,7 +304,7 @@ variant-swatch-king {
     .card__media {
 
         img {
-            @apply p-12;
+            @apply p-8 md:p-12;
         }
     }
 
@@ -322,7 +323,7 @@ variant-swatch-king {
     }
 
     .card__content:not(.card__inner-content) .card__information {
-        @apply !flex w-full justify-between px-4 md:px-12 uppercase items-center absolute bottom-0;
+        @apply !flex w-full justify-between px-4 md:px-12 uppercase md:items-center md:absolute bottom-0;
 
         a,
         span {
@@ -330,12 +331,30 @@ variant-swatch-king {
         }
 
         .card-information {
-            @apply text-right w-auto;
+            @apply text-right w-auto text-[12px] md:text-[16px];
 
             .price {
                 @apply mt-0;
             }
         }
+    }
+}
+
+product-recommendations .card__content:not(.card__inner-content) .card__information {
+    @apply max-md:bg-white px-0 md:px-12;
+
+    @media screen and (max-width: 768px) {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+
+.card__information {
+
+    a,
+    .price,
+    h5 {
+        @apply text-[12px] md:text-[16px] text-balance max-md:max-w-[80%];
     }
 }
 

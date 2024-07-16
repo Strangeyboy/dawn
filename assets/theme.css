@@ -111,12 +111,11 @@ body:not(.index) #HeaderMenu-shop {
 }
 
 .menu-drawer__menu-item:not(.mobile-footer_menu-item) {
-  border-bottom-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(204 204 204 / var(--tw-border-opacity));
+  padding-bottom: 16px;
   font-size: 44px !important;
   font-weight: 700;
   text-transform: uppercase;
+  border-bottom: solid 1px #CCCCCC;
 }
 
 summary.header__icon--menu span {
@@ -395,7 +394,7 @@ body.product-page sticky-header::after {
 }
 
 .swatch-button-title-text {
-  font-size: 12px !important;
+  font-size: 12px;
 }
 
 @media (min-width: 768px) {
@@ -539,7 +538,12 @@ variant-swatch-king {
   background-color: rgb(237 237 237 / var(--tw-bg-opacity));
   .card__media {
     img {
-      padding: 48px;
+      padding: 32px;
+    }
+    @media (min-width: 768px) {
+      img {
+        padding: 48px;
+      }
     }
   }
   .card__inner {
@@ -555,9 +559,6 @@ variant-swatch-king {
     position: relative;
   }
   .card__content:not(.card__inner-content) .card__information {
-    position: absolute;
-  }
-  .card__content:not(.card__inner-content) .card__information {
     bottom: 0;
   }
   .card__content:not(.card__inner-content) .card__information {
@@ -565,9 +566,6 @@ variant-swatch-king {
   }
   .card__content:not(.card__inner-content) .card__information {
     width: 100%;
-  }
-  .card__content:not(.card__inner-content) .card__information {
-    align-items: center;
   }
   .card__content:not(.card__inner-content) .card__information {
     justify-content: space-between;
@@ -578,6 +576,16 @@ variant-swatch-king {
   }
   .card__content:not(.card__inner-content) .card__information {
     text-transform: uppercase;
+  }
+  @media (min-width: 768px) {
+    .card__content:not(.card__inner-content) .card__information {
+      position: absolute;
+    }
+  }
+  @media (min-width: 768px) {
+    .card__content:not(.card__inner-content) .card__information {
+      align-items: center;
+    }
   }
   @media (min-width: 768px) {
     .card__content:not(.card__inner-content) .card__information {
@@ -597,9 +605,71 @@ variant-swatch-king {
       text-align: right;
     }
     .card-information {
+      font-size: 12px;
+    }
+    @media (min-width: 768px) {
+      .card-information {
+        font-size: 16px;
+      }
+    }
+    .card-information {
       .price {
         margin-top: 0;
       }
+    }
+  }
+}
+
+product-recommendations .card__content:not(.card__inner-content) .card__information {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media not all and (min-width: 768px) {
+  product-recommendations .card__content:not(.card__inner-content) .card__information {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+}
+
+@media (min-width: 768px) {
+  product-recommendations .card__content:not(.card__inner-content) .card__information {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+product-recommendations .card__content:not(.card__inner-content) .card__information {
+  @media screen and (max-width: 768px) {
+    padding-left: 0px !important;
+
+    padding-right: 0px !important;
+  }
+}
+
+.card__information {
+  a,
+    .price,
+    h5 {
+    text-wrap: balance;
+  }
+  a,
+    .price,
+    h5 {
+    font-size: 12px;
+  }
+  @media not all and (min-width: 768px) {
+    a,
+    .price,
+    h5 {
+      max-width: 80%;
+    }
+  }
+  @media (min-width: 768px) {
+    a,
+    .price,
+    h5 {
+      font-size: 16px;
     }
   }
 }
@@ -1584,6 +1654,10 @@ video {
   margin-bottom: 32px !important;
 }
 
+.\!ml-0 {
+  margin-left: 0 !important;
+}
+
 .\!ml-4 {
   margin-left: 16px !important;
 }
@@ -1618,6 +1692,10 @@ video {
 
 .mb-4 {
   margin-bottom: 16px;
+}
+
+.mb-5 {
+  margin-bottom: 20px;
 }
 
 .mb-6 {
@@ -1838,6 +1916,10 @@ video {
 
 .max-w-\[310px\] {
   max-width: 310px;
+}
+
+.max-w-\[50\%\] {
+  max-width: 50%;
 }
 
 .max-w-\[971px\] {
@@ -2073,11 +2155,6 @@ video {
   border-color: rgb(0 0 0 / var(--tw-border-opacity)) !important;
 }
 
-.border-\[\#CCCCCC\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(204 204 204 / var(--tw-border-opacity));
-}
-
 .border-\[\#F1F1F1\] {
   --tw-border-opacity: 1;
   border-color: rgb(241 241 241 / var(--tw-border-opacity));
@@ -2280,12 +2357,32 @@ video {
   padding-bottom: 0 !important;
 }
 
+.\!pb-1 {
+  padding-bottom: 4px !important;
+}
+
+.\!pb-6 {
+  padding-bottom: 24px !important;
+}
+
 .\!pb-8 {
   padding-bottom: 32px !important;
 }
 
+.\!pb-\[28px\] {
+  padding-bottom: 28px !important;
+}
+
 .\!pl-6 {
   padding-left: 24px !important;
+}
+
+.\!pt-16 {
+  padding-top: 64px !important;
+}
+
+.\!pt-8 {
+  padding-top: 32px !important;
 }
 
 .\!pt-\[86px\] {
@@ -2294,6 +2391,10 @@ video {
 
 .pb-0 {
   padding-bottom: 0;
+}
+
+.pb-1 {
+  padding-bottom: 4px;
 }
 
 .pb-6 {
@@ -2328,6 +2429,14 @@ video {
   padding-right: 20px;
 }
 
+.pt-16 {
+  padding-top: 64px;
+}
+
+.pt-8 {
+  padding-top: 32px;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2351,10 +2460,6 @@ video {
 .\!text-5xl {
   font-size: 3rem !important;
   line-height: 1 !important;
-}
-
-.\!text-\[12px\] {
-  font-size: 12px !important;
 }
 
 .\!text-\[16px\] {
@@ -2668,6 +2773,10 @@ video {
     max-width: 154px !important;
   }
 
+  .max-md\:max-w-\[80\%\] {
+    max-width: 80%;
+  }
+
   .max-md\:\!gap-4 {
     gap: 16px !important;
   }
@@ -2695,6 +2804,11 @@ video {
     background-color: rgb(241 241 241 / var(--tw-bg-opacity));
   }
 
+  .max-md\:bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+
   .max-md\:p-6 {
     padding: 24px;
   }
@@ -2702,6 +2816,11 @@ video {
   .max-md\:\!px-0 {
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+
+  .max-md\:\!px-\[10px\] {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
 
   .max-md\:px-6 {
@@ -2729,6 +2848,10 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:absolute {
+    position: absolute;
+  }
+
   .md\:col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -2781,6 +2904,10 @@ video {
     max-width: 470px;
   }
 
+  .md\:items-center {
+    align-items: center;
+  }
+
   .md\:\!gap-1 {
     gap: 4px !important;
   }
@@ -2811,6 +2938,14 @@ video {
   .md\:py-16 {
     padding-top: 64px;
     padding-bottom: 64px;
+  }
+
+  .md\:\!pb-6 {
+    padding-bottom: 24px !important;
+  }
+
+  .md\:\!pt-8 {
+    padding-top: 32px !important;
   }
 
   .md\:pb-\[135px\] {
