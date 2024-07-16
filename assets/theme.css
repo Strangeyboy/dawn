@@ -110,6 +110,13 @@ body:not(.index) #HeaderMenu-shop {
   position: relative;
 }
 
+@media not all and (min-width: 768px) {
+  body.page-about .header-wrapper {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+}
+
 .menu-drawer__menu-item:not(.mobile-footer_menu-item) {
   padding-bottom: 16px;
   font-size: 44px !important;
@@ -674,6 +681,16 @@ product-recommendations .card__content:not(.card__inner-content) .card__informat
   }
 }
 
+@media not all and (min-width: 768px) {
+  product-recommendations .grid__item {
+    width: 70% !important;
+    max-width: initial !important;
+    &:last-child {
+      margin-right: 24px;
+    }
+  }
+}
+
 .variant-swatch-king {
   background-color: transparent !important;
 }
@@ -859,7 +876,9 @@ body.page-about {
     }
   }
   .header__heading-logo-wrapper {
-    filter: brightness(0) saturate(100%) invert(92%) sepia(67%) saturate(393%) hue-rotate(35deg) brightness(107%) contrast(101%);
+    @media screen and (min-width: 768px) {
+      filter: brightness(0) saturate(100%) invert(92%) sepia(67%) saturate(393%) hue-rotate(35deg) brightness(107%) contrast(101%);
+    }
   }
   #HeaderMenu-about {
     --tw-bg-opacity: 1;
@@ -892,9 +911,11 @@ body.page-about {
   .main-page-title.page-title {
     display: none;
   }
-  .header__icon {
-    --tw-bg-opacity: 1;
-    background-color: rgb(205 255 165 / var(--tw-bg-opacity));
+  @media (min-width: 768px) {
+    .header__icon {
+      --tw-bg-opacity: 1;
+      background-color: rgb(205 255 165 / var(--tw-bg-opacity));
+    }
   }
   .page-width--narrow {
     max-width: initial !important;
@@ -1666,6 +1687,10 @@ video {
   margin-right: 16px !important;
 }
 
+.\!mr-8 {
+  margin-right: 32px !important;
+}
+
 .\!mt-0 {
   margin-top: 0 !important;
 }
@@ -1722,6 +1747,10 @@ video {
   margin-left: 24px;
 }
 
+.mr-8 {
+  margin-right: 32px;
+}
+
 .mt-0 {
   margin-top: 0;
 }
@@ -1736,6 +1765,10 @@ video {
 
 .mt-\[108px\] {
   margin-top: 108px;
+}
+
+.mt-\[30px\] {
+  margin-top: 30px;
 }
 
 .mt-\[98px\] {
@@ -2918,6 +2951,11 @@ video {
 
   .md\:rounded-lg {
     border-radius: 0.5rem;
+  }
+
+  .md\:bg-\[\#CDFFA5\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(205 255 165 / var(--tw-bg-opacity));
   }
 
   .md\:bg-\[\#F1F1F1\] {

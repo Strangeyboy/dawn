@@ -84,6 +84,10 @@ body:not(.index) #HeaderMenu-shop {
     @apply relative;
 }
 
+body.page-about .header-wrapper {
+    @apply max-md:bg-white;
+}
+
 .menu-drawer__menu-item:not(.mobile-footer_menu-item) {
     @apply !text-[44px] uppercase font-bold pb-4;
     border-bottom: solid 1px #CCCCCC;
@@ -358,6 +362,17 @@ product-recommendations .card__content:not(.card__inner-content) .card__informat
     }
 }
 
+@media not all and (min-width: 768px) {
+    product-recommendations .grid__item {
+        width: 70% !important;
+        max-width: initial !important;
+
+        &:last-child {
+            @apply mr-6;
+        }
+    }
+}
+
 .variant-swatch-king {
     @apply !bg-transparent;
 }
@@ -425,7 +440,9 @@ body.page-about {
     }
 
     .header__heading-logo-wrapper {
-        filter: brightness(0) saturate(100%) invert(92%) sepia(67%) saturate(393%) hue-rotate(35deg) brightness(107%) contrast(101%);
+        @media screen and (min-width: 768px) {
+            filter: brightness(0) saturate(100%) invert(92%) sepia(67%) saturate(393%) hue-rotate(35deg) brightness(107%) contrast(101%);
+        }
     }
 
     #HeaderMenu-about {
@@ -449,7 +466,7 @@ body.page-about {
     }
 
     .header__icon {
-        @apply bg-[#CDFFA5];
+        @apply md:bg-[#CDFFA5];
     }
 
     .page-width--narrow {

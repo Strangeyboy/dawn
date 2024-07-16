@@ -121,6 +121,16 @@
                   {%- endif -%}
                 </li>
               {%- endfor -%}
+              <li>
+                <a
+                  id="HeaderDrawer-cart"
+                  href="/cart"
+                  class="menu-drawer__menu-item list-menu__item link link--text focus-inset flex justify-between"
+                >
+                  Cart
+                  <span> ({{ cart.item_count }}) </span>
+                </a>
+              </li>
             </ul>
             <ul>
               {%- for link in section.settings.menu_mobile_footer.links -%}
