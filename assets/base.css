@@ -596,6 +596,7 @@ details>* {
   --ease-out-slow: cubic-bezier(0, 0, 0.3, 1);
   --animation-slide-in: slideIn var(--duration-extra-long) var(--ease-out-slow) forwards;
   --animation-fade-in: fadeIn var(--duration-extra-long) var(--ease-out-slow);
+  --animation-fade-out: fadeOut var(--duration-extra-long) var(--ease-out-slow);
 }
 
 .underlined-link,
@@ -2299,7 +2300,7 @@ input[type='checkbox'] {
 
 /* section-header */
 .section-header.shopify-section-group-header-group {
-  z-index: 3;
+  z-index: 4;
 }
 
 .shopify-section-header-sticky {
@@ -3273,6 +3274,14 @@ details-disclosure>details {
     100% {
       transform: rotate(360deg) translateX(1em) rotate(-360deg) scale(1.2);
     }
+  }
+
+  .animate--fade-in {
+    animation: var(--animation-fade-in);
+  }
+
+  .animate--fade-out {
+    animation: var(--animation-fade-out);
   }
 
   .scroll-trigger.animate--fade-in,

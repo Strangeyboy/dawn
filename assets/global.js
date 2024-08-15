@@ -627,6 +627,10 @@ class ModalDialog extends HTMLElement {
     const popup = this.querySelector('.template-popup');
     document.body.classList.add('overflow-hidden');
     this.setAttribute('open', '');
+    
+    // Add 'test' class to the modal when it's opened
+    this.classList.add('animate__animated', 'animate__slideInUp');
+    
     if (popup) popup.loadContent();
     trapFocus(this, this.querySelector('[role="dialog"]'));
     window.pauseAllMedia();
@@ -638,6 +642,12 @@ class ModalDialog extends HTMLElement {
     this.removeAttribute('open');
     removeTrapFocus(this.openedBy);
     window.pauseAllMedia();
+    
+    this.classList.remove('animate__animated', 'animate__slideInUp');
+    // Remove 'modal-active' class from the product-info element when the modal is closed
+    const productInfo = document.querySelector('.product__info-container');
+    productInfo.classList.remove('animate__fadeOut');
+    productInfo.classList.remove('animate__animated');
   }
 }
 customElements.define('modal-dialog', ModalDialog);
@@ -681,12 +691,25 @@ class ModalOpener extends HTMLElement {
     const button = this.querySelector('button');
 
     if (!button) return;
+
     button.addEventListener('click', () => {
       const modal = document.querySelector(this.getAttribute('data-modal'));
-      if (modal) modal.show(button);
+      if (modal) {
+        modal.show(button);
+
+        // Check if the button's ID contains "ProductPopup-"
+        if (button.id.includes('ProductPopup-')) {
+          const productInfo = document.querySelector(`.product__info-container`);
+          if (productInfo) {
+            productInfo.classList.toggle('animate__fadeOut');
+            productInfo.classList.toggle('animate__animated');
+          }
+        }
+      }
     });
   }
 }
+
 customElements.define('modal-opener', ModalOpener);
 
 class DeferredMedia extends HTMLElement {

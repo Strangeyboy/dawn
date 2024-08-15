@@ -118,11 +118,37 @@ body:not(.index) #HeaderMenu-shop {
 }
 
 .menu-drawer__menu-item:not(.mobile-footer_menu-item) {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 16px;
   padding-bottom: 16px;
   font-size: 44px !important;
   font-weight: 700;
   text-transform: uppercase;
   border-bottom: solid 1px #CCCCCC;
+}
+
+#HeaderDrawer-cart.menu-drawer__menu-item {
+  border-style: none;
+  span {
+    font-size: 22px;
+  }
+  span {
+    font-weight: 200;
+  }
+  span {
+    text-transform: uppercase;
+  }
+  span {
+    line-height: 69px;
+  }
+  span {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
+  span {
+    opacity: 0.5;
+  }
 }
 
 summary.header__icon--menu span {
@@ -497,6 +523,14 @@ variant-swatch-king {
   }
 }
 
+.product__info-container {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
+
 .product__info-wrapper .swatches.swatches-type-products {
   margin-bottom: 0;
   div:nth-child(2) .swatch-single {
@@ -752,37 +786,50 @@ body.page-about {
     h6 {
     color: inherit;
   }
-  blockquote {
+  #countup-timer {
+    display: flex;
+  }
+  #countup-timer {
+    max-width: 971px;
+    margin: 0 auto;
+  }
+  #formatted-time {
     padding-left: 0;
   }
-  blockquote {
+  #formatted-time {
     text-align: center;
   }
-  blockquote {
+  #formatted-time {
+    text-align: center;
+  }
+  #formatted-time {
     font-size: 90px;
   }
-  blockquote {
+  #formatted-time {
     font-weight: 700;
   }
-  blockquote {
+  #formatted-time {
+    font-style: italic;
+  }
+  #formatted-time {
     letter-spacing: -4.5px;
   }
-  blockquote {
+  #formatted-time {
     --tw-text-opacity: 1;
     color: rgb(205 255 165 / var(--tw-text-opacity));
   }
   @media (min-width: 768px) {
-    blockquote {
+    #formatted-time {
       font-size: 170px;
     }
   }
   @media (min-width: 768px) {
-    blockquote {
+    #formatted-time {
       letter-spacing: -13.308px;
     }
   }
   @media (min-width: 1024px) {
-    blockquote {
+    #formatted-time {
       font-size: 266.16px;
     }
   }
@@ -1867,6 +1914,10 @@ video {
   height: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .\!w-20 {
   width: 80px !important;
 }
@@ -2381,6 +2432,11 @@ video {
   padding-bottom: 12px;
 }
 
+.py-4 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
 .py-6 {
   padding-top: 24px;
   padding-bottom: 24px;
@@ -2410,6 +2466,10 @@ video {
   padding-left: 24px !important;
 }
 
+.\!pt-0 {
+  padding-top: 0 !important;
+}
+
 .\!pt-16 {
   padding-top: 64px !important;
 }
@@ -2428,6 +2488,14 @@ video {
 
 .pb-1 {
   padding-bottom: 4px;
+}
+
+.pb-12 {
+  padding-bottom: 48px;
+}
+
+.pb-4 {
+  padding-bottom: 16px;
 }
 
 .pb-6 {
@@ -2460,6 +2528,10 @@ video {
 
 .pr-5 {
   padding-right: 20px;
+}
+
+.pt-0 {
+  padding-top: 0;
 }
 
 .pt-16 {
@@ -2542,6 +2614,10 @@ video {
   font-size: 20px;
 }
 
+.text-\[22px\] {
+  font-size: 22px;
+}
+
 .text-\[25px\] {
   font-size: 25px;
 }
@@ -2573,6 +2649,10 @@ video {
 
 .font-bold {
   font-weight: 700;
+}
+
+.font-extralight {
+  font-weight: 200;
 }
 
 .font-light {
@@ -2625,6 +2705,10 @@ video {
 
 .leading-\[42px\] {
   line-height: 42px;
+}
+
+.leading-\[69px\] {
+  line-height: 69px;
 }
 
 .leading-\[99\.2\%\] {
@@ -2693,6 +2777,10 @@ video {
 
 .underline {
   text-decoration-line: underline;
+}
+
+.opacity-50 {
+  opacity: 0.5;
 }
 
 .shadow {
@@ -2784,10 +2872,6 @@ video {
 
   .max-md\:mb-\[2px\] {
     margin-bottom: 2px;
-  }
-
-  .max-md\:ml-6 {
-    margin-left: 24px;
   }
 
   .max-md\:mt-\[0px\] {
@@ -2909,6 +2993,10 @@ video {
     margin-bottom: 32px !important;
   }
 
+  .md\:\!mt-\[-88\.87px\] {
+    margin-top: -88.87px !important;
+  }
+
   .md\:hidden {
     display: none;
   }
@@ -2925,6 +3013,10 @@ video {
     height: 48px;
   }
 
+  .md\:h-screen {
+    height: 100vh;
+  }
+
   .md\:\!w-\[145px\] {
     width: 145px !important;
   }
@@ -2933,8 +3025,8 @@ video {
     width: 48px;
   }
 
-  .md\:max-w-\[470px\] {
-    max-width: 470px;
+  .md\:max-w-\[502px\] {
+    max-width: 502px;
   }
 
   .md\:items-center {
@@ -2971,6 +3063,11 @@ video {
   .md\:px-20 {
     padding-left: 80px;
     padding-right: 80px;
+  }
+
+  .md\:px-4 {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .md\:py-16 {
