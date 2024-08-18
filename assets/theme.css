@@ -928,34 +928,34 @@ body.page-about {
       }
     }
   }
-  .header__heading-logo-wrapper {
+  .shopify-section-group-header-group:not(.shopify-section-header-sticky) .header__heading-logo-wrapper {
     @media screen and (min-width: 768px) {
       filter: brightness(0) saturate(100%) invert(92%) sepia(67%) saturate(393%) hue-rotate(35deg) brightness(107%) contrast(101%);
     }
   }
-  #HeaderMenu-about {
+  .shopify-section-group-header-group:not(.shopify-section-header-sticky) #HeaderMenu-about {
     --tw-bg-opacity: 1;
     background-color: rgb(64 64 64 / var(--tw-bg-opacity));
   }
-  #HeaderMenu-about {
+  .shopify-section-group-header-group:not(.shopify-section-header-sticky) #HeaderMenu-about {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
   }
-  #HeaderMenu-about {
+  .shopify-section-group-header-group:not(.shopify-section-header-sticky) #HeaderMenu-about {
     span {
       --tw-text-opacity: 1;
       color: rgb(255 255 255 / var(--tw-text-opacity));
     }
   }
-  #HeaderMenu-shop {
+  .shopify-section-group-header-group:not(.shopify-section-header-sticky) #HeaderMenu-shop {
     --tw-bg-opacity: 1;
     background-color: rgb(205 255 165 / var(--tw-bg-opacity));
   }
-  #HeaderMenu-shop {
+  .shopify-section-group-header-group:not(.shopify-section-header-sticky) #HeaderMenu-shop {
     --tw-text-opacity: 1 !important;
     color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
   }
-  #HeaderMenu-shop {
+  .shopify-section-group-header-group:not(.shopify-section-header-sticky) #HeaderMenu-shop {
     span {
       --tw-text-opacity: 1;
       color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -965,7 +965,7 @@ body.page-about {
     display: none;
   }
   @media (min-width: 768px) {
-    .header__icon {
+    .shopify-section-group-header-group:not(.shopify-section-header-sticky) .header__icon {
       --tw-bg-opacity: 1;
       background-color: rgb(205 255 165 / var(--tw-bg-opacity));
     }
@@ -1816,6 +1816,10 @@ video {
   margin-top: 48px;
 }
 
+.mt-3 {
+  margin-top: 12px;
+}
+
 .mt-8 {
   margin-top: 32px;
 }
@@ -1834,10 +1838,6 @@ video {
 
 .mt-\[98px\] {
   margin-top: 98px;
-}
-
-.mt-3 {
-  margin-top: 12px;
 }
 
 .block {

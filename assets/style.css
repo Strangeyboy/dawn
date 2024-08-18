@@ -478,13 +478,13 @@ body.page-about {
         }
     }
 
-    .header__heading-logo-wrapper {
+    .shopify-section-group-header-group:not(.shopify-section-header-sticky) .header__heading-logo-wrapper {
         @media screen and (min-width: 768px) {
             filter: brightness(0) saturate(100%) invert(92%) sepia(67%) saturate(393%) hue-rotate(35deg) brightness(107%) contrast(101%);
         }
     }
 
-    #HeaderMenu-about {
+    .shopify-section-group-header-group:not(.shopify-section-header-sticky) #HeaderMenu-about {
         @apply bg-[#404040] text-white;
 
         span {
@@ -492,7 +492,7 @@ body.page-about {
         }
     }
 
-    #HeaderMenu-shop {
+    .shopify-section-group-header-group:not(.shopify-section-header-sticky) #HeaderMenu-shop {
         @apply bg-[#CDFFA5] !text-black;
 
         span {
@@ -504,7 +504,7 @@ body.page-about {
         @apply hidden;
     }
 
-    .header__icon {
+    .shopify-section-group-header-group:not(.shopify-section-header-sticky) .header__icon {
         @apply md:bg-[#CDFFA5];
     }
 

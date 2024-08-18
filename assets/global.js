@@ -627,29 +627,51 @@ class ModalDialog extends HTMLElement {
     const popup = this.querySelector('.template-popup');
     document.body.classList.add('overflow-hidden');
     this.setAttribute('open', '');
-    
-    // Add 'test' class to the modal when it's opened
+
+    // Add opening animation to the modal
     this.classList.add('animate__animated', 'animate__slideInUp');
     
+    // Fade out the main content
+    const productInfo = document.querySelector('.product__inner-content');
+    if (productInfo) {
+      productInfo.classList.add('animate__fadeOut', 'animate__animated');
+    }
+
     if (popup) popup.loadContent();
     trapFocus(this, this.querySelector('[role="dialog"]'));
     window.pauseAllMedia();
   }
 
   hide() {
-    document.body.classList.remove('overflow-hidden');
-    document.body.dispatchEvent(new CustomEvent('modalClosed'));
-    this.removeAttribute('open');
-    removeTrapFocus(this.openedBy);
-    window.pauseAllMedia();
-    
-    this.classList.remove('animate__animated', 'animate__slideInUp');
-    // Remove 'modal-active' class from the product-info element when the modal is closed
+    // Apply closing animation to the modal
+    this.classList.add('animate__animated', 'animate__slideOutDown');
+
+    // Fade in the main content
     const productInfo = document.querySelector('.product__inner-content');
-    productInfo.classList.remove('animate__fadeOut');
-    productInfo.classList.remove('animate__animated');
+    if (productInfo) {
+      productInfo.classList.remove('animate__fadeOut');
+      productInfo.classList.add('animate__fadeIn', 'animate__animated');
+    }
+
+    // Wait for the modal animation to complete
+    this.addEventListener('animationend', () => {
+      document.body.classList.remove('overflow-hidden');
+      document.body.dispatchEvent(new CustomEvent('modalClosed'));
+      this.removeAttribute('open');
+      removeTrapFocus(this.openedBy);
+      window.pauseAllMedia();
+
+      // Clean up animation classes after animation completes
+      this.classList.remove('animate__animated', 'animate__slideInUp', 'animate__slideOutDown');
+
+      // Remove the fadeIn animation after it completes
+      if (productInfo) {
+        productInfo.classList.remove('animate__fadeIn', 'animate__animated');
+      }
+    }, { once: true });
   }
 }
+
 customElements.define('modal-dialog', ModalDialog);
 
 class BulkModal extends HTMLElement {
