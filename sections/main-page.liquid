@@ -21,7 +21,7 @@
   <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {% if page.metafields.custom.countdown_timer != blank %}
       <div class="countdown-timer animate__animated animate__fadeIn">
-        <video autoplay muted loop>
+        <video autoplay muted loop playsinline preload="auto">
           <source src="{{ page.metafields.custom.countdown_timer | file_url }}" type="video/mp4">
           Your browser does not support the video tag.
         </video>

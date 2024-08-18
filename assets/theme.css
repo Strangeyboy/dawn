@@ -128,6 +128,10 @@ body:not(.index) #HeaderMenu-shop {
   border-bottom: solid 1px #CCCCCC;
 }
 
+.menu-drawer__utility-links .localization-form__select>span {
+  font-size: 14px;
+}
+
 #HeaderDrawer-cart.menu-drawer__menu-item {
   border-style: none;
   span {
@@ -279,6 +283,19 @@ summary.header__icon--menu span {
   line-height: 27px;
 }
 
+.localization-selector::before,
+.localization-selector::after {
+  display: none !important;
+}
+
+.footer .footer__blocks-wrapper>.footer-block:nth-of-type(2) .localization-form {
+  display: none;
+}
+
+.footer .localization-form .disclosure__list-wrapper {
+  right: 0;
+}
+
 /* general */
 
 .tw-grid {
@@ -311,7 +328,7 @@ body.product-page {
     background-color: rgb(241 241 241 / var(--tw-bg-opacity));
   }
   @media not all and (min-width: 768px) {
-    .product-popup-modal__opener {
+    .product-popup-modal__opener:not(.size-guide-opener) {
       display: none;
     }
   }
@@ -451,6 +468,24 @@ body.product-page sticky-header::after {
   padding: 0 !important;
 }
 
+.product-popup-modal__content {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+@media not all and (min-width: 768px) {
+  .product-popup-modal__content {
+    width: 100%;
+    padding-top: 64px;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-popup-modal__content {
+    width: 50vw;
+  }
+}
+
 .product-popup-modal__content-info {
   width: 100%;
 }
@@ -487,6 +522,10 @@ variant-swatch-king {
 }
 
 variant-swatch-king {
+  .swatches,
+    .swatch-single {
+    margin-bottom: 24px;
+  }
   @media not all and (min-width: 768px) {
     .swatches,
     .swatch-single {
@@ -1687,6 +1726,11 @@ video {
   margin: 32px;
 }
 
+.\!mx-0 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 .\!mx-auto {
   margin-left: auto !important;
   margin-right: auto !important;
@@ -1768,6 +1812,10 @@ video {
   margin-bottom: 4px;
 }
 
+.mb-10 {
+  margin-bottom: 40px;
+}
+
 .mb-2 {
   margin-bottom: 8px;
 }
@@ -1844,6 +1892,14 @@ video {
   display: block;
 }
 
+.\!inline-block {
+  display: inline-block !important;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
 .inline {
   display: inline;
 }
@@ -1886,6 +1942,10 @@ video {
 
 .\!h-\[24px\] {
   height: 24px !important;
+}
+
+.\!h-\[27px\] {
+  height: 27px !important;
 }
 
 .\!h-\[50px\] {
@@ -1942,6 +2002,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.\!min-h-\[27px\] {
+  min-height: 27px !important;
 }
 
 .\!w-20 {
@@ -2231,6 +2295,10 @@ video {
   border-width: 1px !important;
 }
 
+.\!border-0 {
+  border-width: 0px !important;
+}
+
 .border {
   border-width: 1px;
 }
@@ -2509,12 +2577,20 @@ video {
   padding-left: 24px !important;
 }
 
+.\!pr-6 {
+  padding-right: 24px !important;
+}
+
 .\!pt-0 {
   padding-top: 0 !important;
 }
 
 .\!pt-16 {
   padding-top: 64px !important;
+}
+
+.\!pt-20 {
+  padding-top: 80px !important;
 }
 
 .\!pt-8 {
@@ -2573,6 +2649,10 @@ video {
   padding-right: 20px;
 }
 
+.pr-6 {
+  padding-right: 24px;
+}
+
 .pt-0 {
   padding-top: 0;
 }
@@ -2608,6 +2688,10 @@ video {
 .\!text-5xl {
   font-size: 3rem !important;
   line-height: 1 !important;
+}
+
+.\!text-\[14px\] {
+  font-size: 14px !important;
 }
 
 .\!text-\[16px\] {
@@ -2921,6 +3005,10 @@ video {
     max-height: 40px;
   }
 
+  .max-md\:w-full {
+    width: 100%;
+  }
+
   .max-md\:\!max-w-\[154px\] {
     max-width: 154px !important;
   }
@@ -2988,8 +3076,20 @@ video {
     padding-left: 24px !important;
   }
 
+  .max-md\:\!pr-6 {
+    padding-right: 24px !important;
+  }
+
+  .max-md\:\!pt-20 {
+    padding-top: 80px !important;
+  }
+
   .max-md\:pb-6 {
     padding-bottom: 24px;
+  }
+
+  .max-md\:pt-16 {
+    padding-top: 64px;
   }
 }
 
@@ -3032,6 +3132,10 @@ video {
     margin-top: -88.87px !important;
   }
 
+  .md\:mb-8 {
+    margin-bottom: 32px;
+  }
+
   .md\:hidden {
     display: none;
   }
@@ -3062,6 +3166,10 @@ video {
 
   .md\:w-\[48px\] {
     width: 48px;
+  }
+
+  .md\:w-\[50vw\] {
+    width: 50vw;
   }
 
   .md\:max-w-\[502px\] {
@@ -3128,6 +3236,10 @@ video {
 
   .md\:text-center {
     text-align: center;
+  }
+
+  .md\:\!text-\[16px\] {
+    font-size: 16px !important;
   }
 
   .md\:\!text-\[18px\] {

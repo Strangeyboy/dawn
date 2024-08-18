@@ -19,7 +19,7 @@
     <div id="menu-drawer" class="menu-drawer motion-reduce bg-white">
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
-          <nav class="menu-drawer__navigation !pt-[86px] flex flex-col space-between justify-between h-full">
+          <nav class="menu-drawer__navigation !pt-[86px] flex flex-col space-between justify-between h-full !pb-0">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
               {%- for link in section.settings.menu_mobile.links -%}
                 <li>
@@ -134,13 +134,28 @@
               </li>
             </ul>
             <ul>
+              <li>
+                <div class="menu-drawer__menu-item mobile-footer_menu-item list-menu__item link link--text focus-inset !mb-6">
+                  {{
+                    settings.icon
+                    | image_url: width: 600
+                    | image_tag:
+                      class: 'header__heading-logo max-md:!max-w-[154px]',
+                      widths: widths,
+                      height: 'auto',
+                      width: 28,
+                      alt: 'Innerpace logo',
+                      preload: true
+                  }}
+                </div>
+              </li>
               {%- for link in section.settings.menu_mobile_footer.links -%}
                 {%- if link.links == blank -%}
                   <li>
                     <a
                       id="HeaderDrawer-{{ link.handle }}"
                       href="{{ link.url }}"
-                      class="menu-drawer__menu-item mobile-footer_menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
+                      class="!text-[14px] menu-drawer__menu-item mobile-footer_menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
                       {% if link.current %}
                         aria-current="page"
                       {% endif %}
@@ -152,7 +167,7 @@
               {%- endfor -%}
             </ul>
           </nav>
-          <div class="menu-drawer__utility-links">
+          <div class="menu-drawer__utility-links !bg-white">
             {%- if shop.customer_accounts_enabled -%}
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"

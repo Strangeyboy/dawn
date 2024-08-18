@@ -723,8 +723,8 @@ class ModalOpener extends HTMLElement {
         if (button.id.includes('ProductPopup-')) {
           const productInfo = document.querySelector(`.product__inner-content`);
           if (productInfo) {
-            productInfo.classList.toggle('animate__fadeOut');
-            productInfo.classList.toggle('animate__animated');
+            productInfo.classList.add('animate__fadeOut');
+            productInfo.classList.add('animate__animated');
           }
         }
       }

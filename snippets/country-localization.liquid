@@ -28,19 +28,22 @@
 <div class="disclosure">
   <button
     type="button"
-    class="disclosure__button localization-form__select localization-selector link link--text caption-large"
+    class="disclosure__button localization-form__select localization-selector link link--text caption-large !text-[16px] !p-0 !m-0 !h-[27px] !min-h-[27px]"
     aria-expanded="false"
     aria-controls="{{ localPosition }}-country-results"
     aria-describedby="{{ localPosition }}Label"
   >
     <span>
-      {{- localization.country.name }} |
-      {{ localization.country.currency.iso_code }}
-      {{ localization.country.currency.symbol -}}
+      Country (
+      {{- localization.country.name }})
+      {% comment %}
+        |
+        {{ localization.country.currency.iso_code }}
+        {{ localization.country.currency.symbol -}}
+      {% endcomment %}
     </span>
-    {% render 'icon-caret' %}
   </button>
-  <div class="disclosure__list-wrapper country-selector" hidden>
+  <div class="disclosure__list-wrapper country-selector bg-white" hidden>
     <div class="country-filter{% unless show_country_filter %} country-filter--no-padding{% endunless %}">
       {% if show_country_filter %}
         <div class="field">
@@ -86,7 +89,7 @@
         {% render 'icon-close' %}
       </button>
     </div>
-    <div id="sr-country-search-results" class="visually-hidden" aria-live="polite"></div>
+    <div id="sr-country-search-results bg-white" class="visually-hidden" aria-live="polite"></div>
     <div
       class="disclosure__list country-selector__list{% if show_currencies %} country-selector__list--with-multiple-currencies{% endif %}"
       id="{{ localPosition }}-country-results"
@@ -125,7 +128,7 @@
           {%- endfor -%}
         </ul>
       {% endif %}
-      <ul role="list" class="list-unstyled countries">
+      <ul role="list" class="list-unstyled countries bg-white">
         {%- for country in localization.available_countries -%}
           <li class="disclosure__item" tabindex="-1">
             <a
