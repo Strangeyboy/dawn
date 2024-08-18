@@ -14,11 +14,21 @@
   }
 {%- endstyle -%}
 
-<div class="page-width page-width--narrow section-{{ section.id }}-padding">
+<div class="!pt-0 page-width page-width--narrow section-{{ section.id }}-padding">
   <h1 class="main-page-title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     {{ page.title | escape }}
   </h1>
   <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    {% if page.metafields.custom.countdown_timer != blank %}
+      <div class="countdown-timer">
+        <video autoplay muted loop>
+          <source src="{{ page.metafields.custom.countdown_timer | file_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    {% else %}
+      <p>No countdown timer available.</p>
+    {% endif %}
     {{ page.content }}
   </div>
 </div>

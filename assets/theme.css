@@ -444,6 +444,34 @@ body.product-page sticky-header::after {
   display: none;
 }
 
+.product-popup-modal__toggle {
+  height: 24px !important;
+  width: 24px !important;
+  border-style: none !important;
+  padding: 0 !important;
+}
+
+.product-popup-modal__content-info {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .product-popup-modal__content-info {
+    max-width: 502px;
+  }
+}
+
+.product-popup-modal__content-info {
+  table {
+    width: 100%;
+  }
+}
+
+.product-popup-modal__toggle .icon {
+  height: 24px !important;
+  width: 24px !important;
+}
+
 variant-swatch-king {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
@@ -786,51 +814,29 @@ body.page-about {
     h6 {
     color: inherit;
   }
-  #countup-timer {
+  #countup-timer,
+    .countdown-timer {
     display: flex;
   }
-  #countup-timer {
+  #countup-timer,
+    .countdown-timer {
     max-width: 971px;
     margin: 0 auto;
   }
   #formatted-time {
-    padding-left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
   #formatted-time {
-    text-align: center;
+    height: 200px;
   }
   #formatted-time {
-    text-align: center;
-  }
-  #formatted-time {
-    font-size: 90px;
-  }
-  #formatted-time {
-    font-weight: 700;
-  }
-  #formatted-time {
-    font-style: italic;
-  }
-  #formatted-time {
-    letter-spacing: -4.5px;
-  }
-  #formatted-time {
-    --tw-text-opacity: 1;
-    color: rgb(205 255 165 / var(--tw-text-opacity));
+    width: 100%;
   }
   @media (min-width: 768px) {
     #formatted-time {
-      font-size: 170px;
-    }
-  }
-  @media (min-width: 768px) {
-    #formatted-time {
-      letter-spacing: -13.308px;
-    }
-  }
-  @media (min-width: 1024px) {
-    #formatted-time {
-      font-size: 266.16px;
+      height: 400px;
     }
   }
   h1 {
@@ -861,7 +867,7 @@ body.page-about {
     }
   }
   .content-for-layout {
-    margin-top: 108px;
+    margin-top: 50px;
   }
   .content-for-layout {
     padding-bottom: 90px;
@@ -1746,6 +1752,10 @@ video {
   margin-top: 24px !important;
 }
 
+.\!mt-8 {
+  margin-top: 32px !important;
+}
+
 .\!mt-\[2px\] {
   margin-top: 2px !important;
 }
@@ -1810,16 +1820,24 @@ video {
   margin-top: 32px;
 }
 
-.mt-\[108px\] {
-  margin-top: 108px;
+.mt-\[-105px\] {
+  margin-top: -105px;
 }
 
 .mt-\[30px\] {
   margin-top: 30px;
 }
 
+.mt-\[50px\] {
+  margin-top: 50px;
+}
+
 .mt-\[98px\] {
   margin-top: 98px;
+}
+
+.mt-3 {
+  margin-top: 12px;
 }
 
 .block {
@@ -1866,6 +1884,10 @@ video {
   height: 100px !important;
 }
 
+.\!h-\[24px\] {
+  height: 24px !important;
+}
+
 .\!h-\[50px\] {
   height: 50px !important;
 }
@@ -1896,6 +1918,10 @@ video {
 
 .h-\[132px\] {
   height: 132px;
+}
+
+.h-\[200px\] {
+  height: 200px;
 }
 
 .h-\[24px\] {
@@ -1935,6 +1961,10 @@ video {
 }
 
 .\!w-6 {
+  width: 24px !important;
+}
+
+.\!w-\[24px\] {
   width: 24px !important;
 }
 
@@ -2239,6 +2269,11 @@ video {
   border-color: rgb(0 0 0 / var(--tw-border-opacity)) !important;
 }
 
+.border-\[\#727272\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(114 114 114 / var(--tw-border-opacity));
+}
+
 .border-\[\#F1F1F1\] {
   --tw-border-opacity: 1;
   border-color: rgb(241 241 241 / var(--tw-border-opacity));
@@ -2342,6 +2377,14 @@ video {
 
 .bg-no-repeat {
   background-repeat: no-repeat;
+}
+
+.\!p-0 {
+  padding: 0 !important;
+}
+
+.p-0 {
+  padding: 0;
 }
 
 .p-6 {
@@ -2634,10 +2677,6 @@ video {
   font-size: 50px;
 }
 
-.text-\[90px\] {
-  font-size: 90px;
-}
-
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -2737,10 +2776,6 @@ video {
 
 .tracking-\[-2\.5px\] {
   letter-spacing: -2.5px;
-}
-
-.tracking-\[-4\.5px\] {
-  letter-spacing: -4.5px;
 }
 
 .tracking-tight {
@@ -3009,6 +3044,10 @@ video {
     height: 90px !important;
   }
 
+  .md\:h-\[400px\] {
+    height: 400px;
+  }
+
   .md\:h-\[48px\] {
     height: 48px;
   }
@@ -3107,10 +3146,6 @@ video {
     font-size: 16px;
   }
 
-  .md\:text-\[170px\] {
-    font-size: 170px;
-  }
-
   .md\:text-\[30px\] {
     font-size: 30px;
   }
@@ -3135,10 +3170,6 @@ video {
     letter-spacing: -0.9px;
   }
 
-  .md\:tracking-\[-13\.308px\] {
-    letter-spacing: -13.308px;
-  }
-
   .md\:tracking-\[-3\.5px\] {
     letter-spacing: -3.5px;
   }
@@ -3155,9 +3186,5 @@ video {
 
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .lg\:text-\[266\.16px\] {
-    font-size: 266.16px;
   }
 }

@@ -645,7 +645,7 @@ class ModalDialog extends HTMLElement {
     
     this.classList.remove('animate__animated', 'animate__slideInUp');
     // Remove 'modal-active' class from the product-info element when the modal is closed
-    const productInfo = document.querySelector('.product__info-container');
+    const productInfo = document.querySelector('.product__inner-content');
     productInfo.classList.remove('animate__fadeOut');
     productInfo.classList.remove('animate__animated');
   }
@@ -699,7 +699,7 @@ class ModalOpener extends HTMLElement {
 
         // Check if the button's ID contains "ProductPopup-"
         if (button.id.includes('ProductPopup-')) {
-          const productInfo = document.querySelector(`.product__info-container`);
+          const productInfo = document.querySelector(`.product__inner-content`);
           if (productInfo) {
             productInfo.classList.toggle('animate__fadeOut');
             productInfo.classList.toggle('animate__animated');

@@ -82,7 +82,7 @@
         >
           <div><span></span></div>
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
-          <div class="w-full">
+          <div class="w-full product__inner-content">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when '@app' -%}
@@ -459,11 +459,51 @@
                   %}
 
                 {%- when 'variant_picker' -%}
+                  {%- assign size_option_found = false -%}
+
                   {% render 'product-variant-picker',
                     product: product,
                     block: block,
                     product_form_id: product_form_id
                   %}
+
+                  {%- for option in product.options_with_values -%}
+                    {%- if option.name == 'Size' or option.name == 'size' -%}
+                      {%- assign size_option_found = true -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+
+                  {%- if size_option_found -%}
+                    <div class="size-selector">
+                      {%- for option in product.options_with_values -%}
+                        {%- if option.name == 'Size' or option.name == 'size' -%}
+                          <!-- Render Size option picker -->
+                          {% render 'product-variant-picker',
+                            product: product,
+                            block: block,
+                            product_form_id: product_form_id
+                          %}
+                          {% if product.metafields.size_guide.content != blank %}
+                            <!-- Render Modal Opener for Size Guide -->
+                            <modal-opener
+                              class="product-popup-modal__opener quick-add-hidden absolute right-0 mt-[-105px] underline animate__animated animate__fadeIn animate__delay-2s"
+                              data-modal="#PopupModal-size-guide"
+                              {{ block.shopify_attributes }}
+                            >
+                              <button
+                                id="ProductPopup-size-guide"
+                                class="product-popup-modal__button !flex flex-row items-center gap-2"
+                                type="button"
+                                aria-haspopup="dialog"
+                              >
+                                Size guide
+                              </button>
+                            </modal-opener>
+                          {% endif %}
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
                 {%- when 'buy_buttons' -%}
                   {%- render 'buy-buttons',
                     block: block,
@@ -728,21 +768,68 @@
           class="product-popup-modal__content"
           tabindex="-1"
         >
-          <button
-            id="ModalClose-{{ block.id }}"
-            type="button"
-            class="product-popup-modal__toggle"
-            aria-label="{{ 'accessibility.close' | t }}"
-          >
-            {% render 'icon-close' %}
-          </button>
           <div class="product-popup-modal__content-info">
-            <h1 class="h2">{{ block.settings.page.title | escape }}</h1>
-            {{ block.settings.page.content }}
+            <div class="flex flex-row border-b border-[#727272] !pb-6">
+              <h1 class="h2">{{ block.settings.page.title | escape }}</h1>
+              <button
+                id="ModalClose-{{ block.id }}"
+                type="button"
+                class="product-popup-modal__toggle"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                {% render 'icon-close' %}
+              </button>
+            </div>
+            <div class="!mt-8">
+              {{ block.settings.page.content }}
+            </div>
           </div>
         </div>
       </modal-dialog>
     {%- endfor -%}
+    {% if product.metafields.size_guide.content != blank %}
+      <modal-dialog
+        id="PopupModal-size-guide"
+        class="product-popup-modal"
+        {{ block.shopify_attributes }}
+      >
+        <div
+          role="dialog"
+          aria-label="{{ block.settings.text }}"
+          aria-modal="true"
+          class="product-popup-modal__content"
+          tabindex="-1"
+        >
+          <div class="product-popup-modal__content-info">
+            <div class="flex flex-row border-b border-[#727272] !pb-6">
+              <h1 class="h2 capitalize">Size guide</h1>
+              <button
+                id="ModalClose-size-guide"
+                type="button"
+                class="product-popup-modal__toggle m-0 relative"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                {% render 'icon-close' %}
+              </button>
+            </div>
+            <div class="size-guide !mt-8">
+              {{ product.metafields.size_guide.content }}
+              <div class="mt-8">
+                {{ product.metafields.size_guide.copy }}
+              </div>
+              <div class="w-full flex justify-center mt-3">
+                <img
+                  src="{{ product.metafields.size_guide.image | file_url }}"
+                  width="238"
+                  height="..."
+                  alt="Size guide diagram"
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </modal-dialog>
+    {% endif %}
 
     {% assign popups = section.blocks | where: 'type', 'popup-description' %}
     {%- for block in popups -%}
@@ -754,17 +841,21 @@
           class="product-popup-modal__content"
           tabindex="-1"
         >
-          <button
-            id="ModalClose-{{ block.id }}"
-            type="button"
-            class="product-popup-modal__toggle"
-            aria-label="{{ 'accessibility.close' | t }}"
-          >
-            {% render 'icon-close' %}
-          </button>
           <div class="product-popup-modal__content-info">
-            <h1 class="h2">{{ block.settings.page.title | escape }}</h1>
-            {{ product.description }}
+            <div class="flex flex-row border-b border-[#727272] !pb-6">
+              <h1 class="h2">Product Details</h1>
+              <button
+                id="ModalClose-{{ block.id }}"
+                type="button"
+                class="product-popup-modal__toggle"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                {% render 'icon-close' %}
+              </button>
+            </div>
+            <div class="!mt-8">
+              {{ product.description }}
+            </div>
           </div>
         </div>
       </modal-dialog>
