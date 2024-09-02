@@ -109,6 +109,19 @@ summary.header__icon--menu span {
     @apply absolute w-[44px] h-[44px] z-10;
 }
 
+/* cart page */
+
+body.cart {
+    .cart-quantity {
+        @apply !rounded-full border border-black
+    }
+
+    .quantity__input {
+        @apply relative;
+    }
+
+}
+
 /* home page */
 .index .banner--large {
     @apply !min-h-screen;
@@ -471,7 +484,7 @@ body.page-about {
     #countup-timer,
     .countdown-timer {
         @apply flex;
-        max-width: 971px;
+        max-width: 1110px;
         margin: 0 auto;
 
     }

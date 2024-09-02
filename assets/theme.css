@@ -162,6 +162,24 @@ summary.header__icon--menu span {
   width: 44px;
 }
 
+/* cart page */
+
+body.cart {
+  .cart-quantity {
+    border-radius: 9999px !important;
+  }
+  .cart-quantity {
+    border-width: 1px;
+  }
+  .cart-quantity {
+    --tw-border-opacity: 1;
+    border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  }
+  .quantity__input {
+    position: relative;
+  }
+}
+
 /* home page */
 
 .index .banner--large {
@@ -859,7 +877,7 @@ body.page-about {
   }
   #countup-timer,
     .countdown-timer {
-    max-width: 971px;
+    max-width: 1110px;
     margin: 0 auto;
   }
   #formatted-time {
@@ -2345,6 +2363,11 @@ video {
 .border-\[\#F1F1F1\] {
   --tw-border-opacity: 1;
   border-color: rgb(241 241 241 / var(--tw-border-opacity));
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .border-gray-200 {
