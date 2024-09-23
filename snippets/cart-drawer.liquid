@@ -21,7 +21,7 @@
   <div id="CartDrawer" class="cart-drawer">
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
     <div
-      class="drawer__inner gradient color-{{ settings.cart_color_scheme }}"
+      class="drawer__inner px-[16px] md:!px-[24px] gradient color-{{ settings.cart_color_scheme }}"
       role="dialog"
       aria-modal="true"
       aria-label="{{ 'sections.cart.title' | t }}"
@@ -59,7 +59,7 @@
           {%- endif -%}
         </div>
       {%- endif -%}
-      <div class="drawer__header !pb-1 !pt-16 md:!pt-8">
+      <div class="drawer__header !pb-0 md:!pb-1 !pt-16 md:!pt-8">
         <div class="push w-[44px] h-[44px]" style="display:block"></div>
         <h2 class="drawer__heading !mb-0 capitalize text-[20px] md:text-[30px]">{{ 'sections.cart.title' | t }}</h2>
         <button
@@ -75,6 +75,7 @@
         {% if cart == empty %}
           class=" is-empty"
         {% endif %}
+        class="max-md:mt-[-5px]"
       >
         <form
           action="{{ routes.cart_url }}"
@@ -140,12 +141,12 @@
                           {% endif %}
                         </td>
 
-                        <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
+                        <td class="cart-item__details max-md:!pl-[6px]" role="cell" headers="CartDrawer-ColumnProduct">
                           {%- if settings.show_vendor -%}
                             <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                           {%- endif -%}
 
-                          <a href="{{ item.url }}" class="cart-item__name h4 break uppercase">
+                          <a href="{{ item.url }}" class="cart-item__name h4 break max-md:!text-[14px]">
                             {{- item.product.title | escape -}}
                           </a>
 
@@ -242,12 +243,12 @@
                                 <span class="visually-hidden">
                                   {{ 'products.product.price.sale_price' | t }}
                                 </span>
-                                <span class="price price--end">
+                                <span class="price price--end max-md:text-[12px]">
                                   {{ item.final_line_price | money }}
                                 </span>
                               </div>
                             {%- else -%}
-                              <span class="price price--end">
+                              <span class="price price--end max-md:text-[12px]">
                                 {{ item.original_line_price | money }}
                               </span>
                             {%- endif -%}
@@ -280,7 +281,7 @@
                           endif
                         -%}
                         <td
-                          class="cart-item__quantity {% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}"
+                          class="cart-item__quantity max-md:!pl-[6px] {% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}"
                           role="cell"
                           headers="CartDrawer-ColumnQuantity"
                         >
@@ -288,7 +289,7 @@
                             <div class="cart-item__quantity-wrapper quantity-popover-wrapper flex flex-row justify-between items-center">
                               <div class="flex flex-row">
                                 <div class="quantity-popover-container{% if has_qty_rules or has_vol_pricing %} quantity-popover-container--hover{% endif %}">
-                                  <quantity-input class="quantity cart-quantity !rounded-[10px] border border-stone-300 max-w-[114px] flex justify-between">
+                                  <quantity-input class="quantity cart-quantity !rounded-[10px] border border-stone-300 max-w-[90px] md:max-w-[114px] flex justify-between max-md:min-h-[42px]">
                                     <button class="quantity__button" name="minus" type="button">
                                       <span class="visually-hidden">
                                         {{-
@@ -300,7 +301,7 @@
                                       {% render 'icon-minus' %}
                                     </button>
                                     <input
-                                      class="quantity__input"
+                                      class="quantity__input max-md:!text-[12px] text-center"
                                       type="number"
                                       data-quantity-variant-id="{{ item.variant.id }}"
                                       name="updates[]"
@@ -359,12 +360,12 @@
                                       <span class="visually-hidden">
                                         {{ 'products.product.price.sale_price' | t }}
                                       </span>
-                                      <span class="price price--end">
+                                      <span class="price price--end max-md:text-[12px]">
                                         {{ item.final_line_price | money }}
                                       </span>
                                     </div>
                                   {%- else -%}
-                                    <span class="price price--end">
+                                    <span class="price price--end max-md:!text-[12px]">
                                       {{ item.original_line_price | money }}
                                     </span>
                                   {%- endif -%}
@@ -541,13 +542,15 @@
           </div>
 
           <div class="totals" role="status">
-            <h2 class="totals__total uppercase">Subtotal</h2>
-            <p class="totals__total-value">{{ cart.total_price | money_without_trailing_zeros }}</p>
+            <h2 class="totals__total uppercase !text-[15px] md:!text-[18px]">Subtotal</h2>
+            <p class="totals__total-value !text-[15px] md:!text-[18px]">
+              {{ cart.total_price | money_without_trailing_zeros }}
+            </p>
           </div>
           <div
             class="flex flex-row !mt-0"
           >
-            <small class="tax-note caption-large rte text-[#8E8E8E] max-w-[50%] !ml-0">
+            <small class="max-md:!mt-[6px] tax-note caption-large rte text-[#8E8E8E] max-w-[50%] !ml-0 !text-[11px] md:!text-[14px]">
               Delivery fee (if applicable) will be calculated at checkout.
               {% comment %}
                 {%- if cart.duties_included and cart.taxes_included -%}
@@ -589,7 +592,9 @@
                 {%- endif -%}
               {% endcomment %}
             </small>
-            <small class="tax-note caption-large rte text-[#8E8E8E] max-w-[50%]"> Import Duties Paid </small>
+            <small class="max-md:!mt-[6px] tax-note caption-large rte text-[#8E8E8E] max-w-[50%] !text-[11px] md:!text-[14px]">
+              Import Duties Paid
+            </small>
           </div>
         </div>
 

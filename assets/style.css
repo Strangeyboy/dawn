@@ -445,15 +445,11 @@ product-recommendations .card__content:not(.card__inner-content) .card__informat
 }
 
 .cart-item__totals.right {
-    @apply opacity-0;
+    @apply !hidden;
 }
 
 .quantity:after {
     box-shadow: none !important;
-}
-
-.drawer__inner {
-    @apply !px-6;
 }
 
 .cart-drawer .cart-items td {
@@ -461,11 +457,21 @@ product-recommendations .card__content:not(.card__inner-content) .card__informat
 }
 
 .quantity__button svg {
-    @apply !w-6 !h-6;
+    @apply w-[18px] h-[18px] md:w-6 md:h-6;
 }
 
 .quantity__input {
     @apply !w-[45px] absolute top-0 bottom-0 left-0 right-0 m-auto;
+}
+
+.cart-item__quantity-wrapper {
+    /* @apply max-md:gap-3; */
+}
+
+@media screen and (max-width: 768px) {
+    .cart-drawer .cart-item__details {
+        grid-column: 2 / 5 !important;
+    }
 }
 
 /* about page */
