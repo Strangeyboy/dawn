@@ -498,7 +498,7 @@ h6:empty {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
   color: rgb(var(--color-link));
-  background-color: transparent;
+  /* background-color: transparent; */
   font-size: 1.4rem;
   font-family: inherit;
 }
@@ -2570,8 +2570,8 @@ input[type='checkbox'] {
 
 .header__icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  height: 42px;
+  width: 42px;
   padding: 0;
 }
 

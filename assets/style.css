@@ -60,7 +60,7 @@
 
 .list-menu--inline .list-menu__item,
 .header__icon--cart {
-    @apply px-6 py-3 rounded-full bg-[#F8F8F8] font-medium uppercase leading-none;
+    @apply px-6 py-[14px] rounded-full bg-[#F8F8F8] font-medium uppercase leading-none;
     font-family: 'Sohne';
 
     span {
@@ -70,6 +70,11 @@
 
 .header__icons {
     @apply items-center gap-6;
+}
+
+#HeaderMenu-shop span,
+#HeaderMenu-about span {
+    @apply h-[14px] leading-[15px];
 }
 
 body:not(.index) #HeaderMenu-shop {
@@ -333,6 +338,10 @@ variant-swatch-king {
     }
 }
 
+.swatch-view.swatch-view-button {
+    @apply overflow-x-hidden !transform-none;
+}
+
 .product__info-container {
     @apply !flex items-center justify-center flex-col justify-between;
 }
@@ -375,7 +384,9 @@ variant-swatch-king {
     }
 
     .card__inner {
-        aspect-ratio: 239 / 340;
+        @media screen and (min-width: 769px) {
+            aspect-ratio: 239 / 340;
+        }
 
         .media {
             img {
@@ -389,7 +400,7 @@ variant-swatch-king {
     }
 
     .card__content:not(.card__inner-content) .card__information {
-        @apply !flex w-full justify-between px-4 md:px-12 uppercase md:items-center md:absolute bottom-0;
+        @apply !flex w-full justify-between px-4 md:px-[30px] uppercase md:items-center md:absolute bottom-0;
 
         a,
         span {
@@ -420,7 +431,7 @@ product-recommendations .card__content:not(.card__inner-content) .card__informat
     a,
     .price,
     h5 {
-        @apply text-[12px] md:text-[16px] text-balance max-md:max-w-[80%];
+        @apply text-[12px] md:text-[16px] text-balance;
     }
 }
 

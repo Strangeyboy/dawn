@@ -78,7 +78,7 @@
       <div class="product__info-wrapper justify-center grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
-          class="md:max-w-[502px] md:px-4 !mx-auto md:m-8 w-full md:h-screen md:!mt-[-88.87px] product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %} mx-[-15px]"
+          class="md:max-w-[502px] md:px-6 !mx-auto md:m-8 w-full md:h-screen md:!mt-[-32px] min-[1025px]:!mt-[-88.87px] product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %} mx-[-15px]"
         >
           <div><span></span></div>
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
@@ -486,13 +486,13 @@
                           {% if product.metafields.size_guide.content != blank %}
                             <!-- Render Modal Opener for Size Guide -->
                             <modal-opener
-                              class="product-popup-modal__opener size-guide-opener quick-add-hidden absolute right-0 mt-[-105px] underline animate__animated animate__fadeIn animate__delay-2s !inline-block"
+                              class="product-popup-modal__opener size-guide-opener quick-add-hidden absolute right-[12px] mt-[-105px] underline animate__animated animate__fadeIn animate__delay-2s !inline-block"
                               data-modal="#PopupModal-size-guide"
                               {{ block.shopify_attributes }}
                             >
                               <button
                                 id="ProductPopup-size-guide"
-                                class="product-popup-modal__button !flex flex-row items-center gap-2 max-md:!pr-6 md:!text-[16px] !text-[14px]"
+                                class="product-popup-modal__button !flex flex-row items-center gap-2 max-md:!pr-6 md:!text-[16px] !text-[14px] tracking-[-0.16px]"
                                 type="button"
                                 aria-haspopup="dialog"
                               >
@@ -704,7 +704,7 @@
               {% render 'icon-arrow' %}
             </a>
           </div>
-          <div class="max-md:hidden w-full flex justify-between pb-12">
+          <div class="max-md:hidden w-full flex justify-between md:pb-12">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'popup-description' -%}
