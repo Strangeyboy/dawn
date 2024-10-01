@@ -50,10 +50,10 @@
 {%- endcapture -%}
 
 <div
-  class="product-media-container media-type-{{ media.media_type }} media-fit-{{ media_fit }} global-media-settings gradient{% if constrain_to_viewport %} constrain-height{% endif %}"
+  class="product-media-container media--transparent"
   style="--ratio: {{ media.aspect_ratio | default: 1.0 }}; --preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};"
 >
-  <div class="product__media media media--transparent">
+  <div class="product__media media !border-none !bg-transparent media--transparent media-type-{{ media.media_type }} media-fit-{{ media_fit }} global-media-settings gradient{% if constrain_to_viewport %} constrain-height{% endif %}">
     {{
       media.preview_image
       | image_url: width: 1946
@@ -65,7 +65,7 @@
     }}
   </div>
   <modal-opener
-    class="h-[32px] !w-[32px] !absolute product__modal-opener bottom-[-40px] right-[8px] product__modal-opener--{{ media.media_type }}"
+    class="min-[508px]:!hidden h-[32px] !w-[32px] !absolute product__modal-opener bottom-[-40px] right-[8px] product__modal-opener--{{ media.media_type }}"
     data-modal="#ProductModal-{{ modal_id }}"
   >
     <span

@@ -58,7 +58,7 @@
     </a>
     <ul
       id="Slider-Gallery-{{ section.id }}"
-      class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile !overflow-visible"
+      class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile max-md:min-h-[450px] overflow-y-hidden"
       role="list"
     >
       {%- if product.selected_or_first_available_variant.featured_media != null -%}

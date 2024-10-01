@@ -99,7 +99,7 @@
                   </div>
                   <button
                     type="submit"
-                    class="newsletter-form__button !w-full text-black justify-between flex space-between items-center !h-[50px] md:!h-[90px] text-[25px] md:text-[60px] rounded md:rounded-lg px-5 border !border-[#C2C2C2] font-normal tracking-tighter"
+                    class="hover:!bg-[#F8F8F8] newsletter-form__button !w-full text-black justify-between flex space-between items-center !h-[50px] md:!h-[90px] text-[25px] md:text-[60px] rounded md:rounded-lg px-5 border !border-[#C2C2C2] font-normal tracking-tighter"
                     name="commit"
                     id="Subscribe"
                     aria-label="{{ 'newsletter.button_label' | t }}"
@@ -166,7 +166,9 @@
                 {% endif %}
               >
                 {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  <h2 class="footer-block__heading !text-[28px] leading-[1.042857142857143] md:!text-[35px] uppercase leading-[36.50px] font-medium inline-richtext">
+                    {{- block.settings.heading -}}
+                  </h2>
                 {%- endif -%}
 
                 {%- case block.type -%}

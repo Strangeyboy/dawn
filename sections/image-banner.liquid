@@ -116,16 +116,34 @@
     </div>
   {%- endif -%}
   <div class="px-6 py-12 md:px-20 md:py-16 w-full items-end flex banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    <div class="banner__box content-container content-container--full-width-mobile  !max-w-[544px] color-{{ section.settings.color_scheme }} gradient">
+    <div class="!bg-transparent !w-full content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
-            <h2
-              class="banner__heading inline-richtext max-md:!leading-[24px] {{ block.settings.heading_size }}"
-              {{ block.shopify_attributes }}
-            >
-              {{ block.settings.heading }}
-            </h2>
+            <div class="flex justify-between w-full flex-row !mb-[40px] md:!mb-[32px] items-end grid grid-cols-2 max-md:!gap-[25px]">
+              <h2
+                class="col-span-2 md:col-span-1 banner__heading inline-richtext max-md:!leading-[24px] md:!leading-[28.5px] !max-w-[544px] {{ block.settings.heading_size }}"
+                {{ block.shopify_attributes }}
+              >
+                {{ block.settings.heading }}
+              </h2>
+              <div class="flex flex-row md:w-[360px] w-full justify-between col-span-2 md:col-span-1 max-md:order-first items-center">
+                <h3 class="uppercase md:text-[30px] leading-[15px] md:leading-[31.5px] text-[13px]">
+                  Training<br>
+                  continuum
+                </h3>
+                <a
+                  {% if block.settings.button_link_1 == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ block.settings.button_link_1 }}"
+                  {% endif %}
+                  class="!w-fit h-fit uppercase button button--secondary !text-[12px] md:!text-[17px] !min-w-[initial] max-md:!px-4 !min-h-[initial] !h-[35px] md:!h-[50px]"
+                >
+                  {{- block.settings.button_label_1 | escape -}}
+                </a>
+              </div>
+            </div>
           {%- when 'image' -%}
             <div class="banner__image">
               <img
@@ -136,8 +154,23 @@
               >
             </div>
           {%- when 'text' -%}
-            <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
-              <p>{{ block.settings.text }}</p>
+            <div class="flex">
+              <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+                <p>{{ block.settings.text }}</p>
+              </div>
+              <div>
+                <h3>Training continuum</h3>
+                <a
+                  {% if block.settings.button_link_1 == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ block.settings.button_link_1 }}"
+                  {% endif %}
+                  class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+                >
+                  {{- block.settings.button_label_1 | escape -}}
+                </a>
+              </div>
             </div>
           {%- when 'buttons' -%}
             <div
@@ -409,6 +442,18 @@
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "default": "t:sections.image-banner.blocks.buttons.settings.button_label_1.default",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_label_1.label",
+          "info": "t:sections.image-banner.blocks.buttons.settings.button_label_1.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_link_1.label"
         }
       ]
     },
