@@ -20,14 +20,30 @@
   </h1>
   <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {% if page.metafields.custom.countdown_timer != blank %}
-      <div class="countdown-timer animate__animated animate__fadeIn">
-        <video autoplay muted loop playsinline preload="auto">
-          <source src="{{ page.metafields.custom.countdown_timer | file_url }}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+      <div class="max-h-svh h-svh !mt-[-51px] md:!mt-[-140px] flex flex-col justify-between md:mb-[78px]">
+        <span>&nbsp;</span>
+        <div class="countdown-timer animate__animated animate__fadeIn">
+          <video autoplay muted loop playsinline preload="auto">
+            <source src="{{ page.metafields.custom.countdown_timer | file_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div>
+          <h1>
+            <span
+              >Don’t Watch<br>
+              The Clock</span
+            >
+          </h1>
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20" height="20" width="16">
+              <line stroke-width="2" stroke="#CDFFA5" y2="18.0667" x2="7.88477" y1="-4.37114e-08" x1="7.88477"></line> <path stroke-width="2" stroke="#CDFFA5" d="M15 10.4584L7.86842 18.0654L0.736842 10.4584"></path>
+            </svg>
+          </div>
+        </div>
       </div>
     {% else %}
-      <p>No countdown timer available.</p>
+
     {% endif %}
     {{ page.content }}
   </div>
