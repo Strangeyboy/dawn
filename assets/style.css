@@ -116,7 +116,7 @@ summary.header__icon--menu span {
 
 /* cart page */
 
-body.cart {
+body.cart .cart__items {
     .cart-quantity {
         @apply !rounded-full border border-black
     }
