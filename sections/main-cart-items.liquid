@@ -29,14 +29,20 @@
   <div class="page-width">
     <div class="title-wrapper-with-link">
       <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
+      <a
+        href="/collections/products{% comment %} {{ routes.all_products_collection_url }} {% endcomment %}"
+        class="underlined-link"
+      >
         {{- 'general.continue_shopping' | t -}}
       </a>
     </div>
 
     <div class="cart__warnings">
-      <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="button">
+      <h1 class="cart__empty-text text-[60px] leading-[55px] !text-black">{{ 'sections.cart.empty' | t }}</h1>
+      <a
+        href="/collections/products{% comment %} {{ routes.all_products_collection_url }} {% endcomment %}"
+        class="button uppercase"
+      >
         {{ 'general.continue_shopping' | t }}
       </a>
 

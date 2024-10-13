@@ -20,7 +20,7 @@
   </h1>
   <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {% if page.metafields.custom.countdown_timer != blank %}
-      <div class="max-h-svh h-svh !mt-[-51px] md:!mt-[-140px] flex flex-col justify-between md:mb-[78px]">
+      <div class="max-h-svh h-svh !mt-[-104px] md:!mt-[-140px] flex flex-col justify-between">
         <span>&nbsp;</span>
         <div class="countdown-timer animate__animated animate__fadeIn">
           <video autoplay muted loop playsinline preload="auto">
@@ -45,7 +45,9 @@
     {% else %}
 
     {% endif %}
-    {{ page.content }}
+    <div class="md:mt-[78px]">
+      {{ page.content }}
+    </div>
   </div>
 </div>
 

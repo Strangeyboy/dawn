@@ -22,7 +22,7 @@
 
 <div class="bg-white">
   <product-recommendations
-    class="!px-0 related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    class="!px-0 related-products section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
     data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
     data-section-id="{{ section.id }}"
     data-product-id="{{ product.id }}"
@@ -32,10 +32,10 @@
         {{ section.settings.heading }}
       </h2>
       <div
-        class="md:bg-[#ededed]"
+        class="page-width max-md:!pr-0"
       >
         <ul
-          class="max-md:!pl-6 max-md:!gap-4 grid bg-white product-grid md:!gap-x-0.5 grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down hide-scroll-bar overflow-x-scroll"
+          class="max-md:!pl-2 max-md:!gap-4 grid bg-white product-grid md:!gap-x-[2px] hide-scroll-bar overflow-x-scroll"
           role="list"
         >
           {% assign skip_card_product_styles = false %}

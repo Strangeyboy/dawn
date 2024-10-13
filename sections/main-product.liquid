@@ -1,6 +1,6 @@
 <product-info
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding border-b border-[#F1F1F1] max-md:bg-[#F1F1F1] max-md:!pb-0 max-md:!mb-[-1px] !pt-0"
+  class="section-{{ section.id }}-padding border-b border-[#F1F1F1] max-md:bg-[#F1F1F1] max-md:!pb-0 max-md:!mb-[-1px] !pt-0 !pb-0"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
   data-update-url="true"
@@ -78,7 +78,7 @@
       <div class="product__info-wrapper justify-center grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
-          class="md:max-w-[502px] md:px-6 !mx-auto md:m-8 w-full md:h-screen md:!mt-[-32px] min-[1025px]:!mt-[-88.87px] product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %} mx-[-15px]"
+          class="md:max-w-[502px] md:px-[44px] lg:px-6 !mx-auto md:m-8 w-full md:h-screen md:!mt-[-32px] min-[1025px]:!mt-[-88.87px] product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %} mx-[-15px]"
         >
           <div><span></span></div>
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
@@ -144,7 +144,7 @@
                   </div>
                 {%- when 'inventory' -%}
                   <p
-                    class="max-md:px-4 pb-4 md:pt-4 bg-white uppercase text-[#0C9600] text-[14px] product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
+                    class="max-md:px-6 pb-4 md:pt-4 bg-white uppercase text-[#0C9600] text-[14px] product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
                     {{ block.shopify_attributes }}
                     id="Inventory-{{ section.id }}"
                     role="status"
@@ -186,16 +186,20 @@
                         {%- endif -%}
                       {%- else -%}
                         {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
-                          <svg width="15" height="15" aria-hidden="true">
-                            <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
-                            <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
-                          </svg>
+                          {% comment %}
+                            <svg width="15" height="15" aria-hidden="true">
+                              <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
+                              <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
+                            </svg>
+                          {% endcomment %}
                           {{- 'products.product.inventory_out_of_stock_continue_selling' | t -}}
                         {%- else -%}
-                          <svg width="15" height="15" aria-hidden="true">
-                            <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
-                            <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
-                          </svg>
+                          {% comment %}
+                            <svg width="15" height="15" aria-hidden="true">
+                              <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
+                              <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
+                            </svg>
+                          {% endcomment %}
                           {{- 'products.product.inventory_out_of_stock' | t -}}
                         {%- endif -%}
                       {%- endif -%}
@@ -769,12 +773,14 @@
           role="dialog"
           aria-label="{{ block.settings.text }}"
           aria-modal="true"
-          class="product-popup-modal__content"
+          class="product-popup-modal__content md:!px-[44px] lg:!px-6"
           tabindex="-1"
         >
           <div class="product-popup-modal__content-info">
             <div class="flex flex-row border-b border-[#727272] !pb-6">
-              <h1 class="h2">{{ block.settings.page.title | escape }}</h1>
+              <h1 class="h2 !text-[18px] md:!text-[30px] text-balance !leading-[99.2%] !tracking-[-0.36px] md:!tracking-[-0.9px]">
+                {{ block.settings.page.title | escape }}
+              </h1>
               <button
                 id="ModalClose-{{ block.id }}"
                 type="button"
@@ -801,12 +807,14 @@
           role="dialog"
           aria-label="{{ block.settings.text }}"
           aria-modal="true"
-          class="product-popup-modal__content max-md:!pt-20"
+          class="product-popup-modal__content md:!px-[44px] lg:!px-6"
           tabindex="-1"
         >
           <div class="product-popup-modal__content-info">
             <div class="flex flex-row border-b border-[#727272] !pb-6">
-              <h1 class="h2 capitalize">Size guide</h1>
+              <h1 class="h2 capitalize h2 !text-[18px] md:!text-[30px] text-balance !leading-[99.2%] !tracking-[-0.36px] md:!tracking-[-0.9px]">
+                Size guide
+              </h1>
               <button
                 id="ModalClose-size-guide"
                 type="button"
@@ -842,12 +850,14 @@
           role="dialog"
           aria-label="{{ block.settings.text }}"
           aria-modal="true"
-          class="product-popup-modal__content"
+          class="product-popup-modal__content md:!px-[44px] lg:!px-6"
           tabindex="-1"
         >
           <div class="product-popup-modal__content-info">
             <div class="flex flex-row border-b border-[#727272] !pb-6">
-              <h1 class="h2">Product Details</h1>
+              <h1 class="h2 !text-[18px] md:!text-[30px] text-balance !leading-[99.2%] !tracking-[-0.36px] md:!tracking-[-0.9px]">
+                Product Details
+              </h1>
               <button
                 id="ModalClose-{{ block.id }}"
                 type="button"

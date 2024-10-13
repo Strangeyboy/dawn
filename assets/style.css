@@ -60,7 +60,7 @@
 
 .list-menu--inline .list-menu__item,
 .header__icon--cart {
-    @apply px-6 py-[14px] rounded-full md:bg-[#F8F8F8] font-medium uppercase leading-none;
+    @apply px-6 py-[14px] rounded-full md:bg-[#F8F8F8] font-medium uppercase leading-none tracking-[0.6px];
     font-family: 'Sohne';
 
     span {
@@ -329,7 +329,7 @@ body.product-page sticky-header::after {
 }
 
 .product-popup-modal__content {
-    @apply max-md:w-full md:w-[50vw] max-md:pt-16 !px-6;
+    @apply max-md:w-full md:w-[50vw] max-md:pt-16 md:px-[44px] lg:px-6 !pt-[160px];
 
     p {
         margin: 1em 0;
@@ -390,6 +390,82 @@ variant-swatch-king {
 
 .swatch-view.swatch-view-button {
     @apply overflow-x-hidden !transform-none;
+}
+
+.swatch-item-unavailable {
+
+    .swatch-button-title-text {
+        @apply !text-[#C8C8C8] !bg-[#F5F5F5];
+    }
+
+    .swatch-button::before {
+        transform: rotate(64deg) !important;
+        @apply !border-[#C8C8C8] !h-[200px];
+    }
+}
+
+.swatch-label.swatch-label-button {
+    @apply text-black !text-[14px] tracking-[-0.16px];
+}
+
+@media screen and (min-width: 768px) {
+    .swatch-label.swatch-label-button {
+        @apply !text-[16px];
+    }
+}
+
+.shopify-block.shopify-app-block {
+    @apply bg-white max-md:px-6;
+}
+
+/* out of stock button */
+#bis_container, #thank-you-section {
+    @apply !rounded-[20px] !w-full max-w-[564px] relative;
+    @media screen and (min-width: 500px) {
+        padding-bottom: 64px !important;
+        padding-top: 64px !important;
+        padding-left: 70px !important;
+        padding-right: 70px !important;
+    }
+    hr {
+        @apply hidden;
+    }
+
+    .modal-title.bis-modal-title, .bis-modal-title, .modal-title {
+        @apply text-center text-black !text-[50px] font-medium !font-[ABCFavorit] leading-[49.60px] tracking-[-1.5px] text-balance;
+    }
+
+    #bis-cancel-request-btn-container {
+        @apply hidden;
+    }
+
+    #bis_product_title, #thank-you-description, #request-message {
+        @apply text-center !text-[17px] !tracking-[-0.17px] !font-[ABCFavorit];
+    }
+    #email-address {
+        @apply mb-[20px];
+    }
+    /* close button */
+    .bis_close_btn {
+        @apply !absolute !top-[32px] !right-[32px];
+    }
+}
+
+#bis-close-btn-container {
+    @apply !w-full;
+}
+.bis_ui_button,
+#submit-btn__bis, #bis-close-btn-container #bis-close-btn {
+    @apply rounded-full uppercase w-full !text-[16px] md:text-[18px] h-[60px] !font-[ABCFavorit] !tracking-[0.36px];
+}
+
+#shopeetech-bis-popup-form-name,
+#shopeetech-bis-popup-form-email {
+    @apply hover:bg-[#F8F8F8] !w-full text-black px-5 border rounded-[6px] !border-[#C2C2C2] text-[#8d8d8d] text-[17px] font-normal tracking-[-0.17px] !font-[ABCFavorit];
+}
+
+#bis-myModal .modal-title {
+    @apply !mb-[12px];
 }
 
 .product__info-container {
@@ -550,10 +626,8 @@ body.page-about {
 
     #countup-timer,
     .countdown-timer {
-        @apply flex;
+        @apply flex mx-auto;
         max-width: 1110px;
-        margin: 0 auto;
-
     }
 
     #formatted-time {
@@ -571,7 +645,7 @@ body.page-about {
         @apply text-center mt-[50px] pb-[90px] md:pb-[135px];
 
         svg {
-            @apply w-full mt-12 mb-20;
+            @apply w-full mt-12 mb-4;
         }
 
         P {
