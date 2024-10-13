@@ -1,38 +1,30 @@
 {% comment %}
   Renders a product media gallery. Should be used with 'media-gallery.js'
   Also see 'product-media-modal'
-
   Accepts:
   - product: {Object} Product liquid object
   - variant_images: {Array} Product images associated with a variant
   - limit: {Number} (optional) When passed, limits the number of media items to render
-
   Usage:
   {% render 'product-media-gallery' %}
 {% endcomment %}
-
 {%- liquid
   if section.settings.hide_variants and variant_images.size == product.media.size
     assign single_media_visible = true
   endif
-
   if limit == 1
     assign single_media_visible = true
   endif
-
   assign media_count = product.media.size
   if section.settings.hide_variants and media_count > 1 and variant_images.size > 0
     assign media_count = media_count | minus: variant_images.size | plus: 1
   endif
-
   if media_count == 1 or single_media_visible
     assign single_media_visible_mobile = true
   endif
-
   if media_count == 0 or single_media_visible_mobile or section.settings.mobile_thumbnails == 'show' or section.settings.mobile_thumbnails == 'columns' and media_count < 3
     assign hide_mobile_slider = true
   endif
-
   if section.settings.media_size == 'large'
     assign media_width = 0.65
   elsif section.settings.media_size == 'medium'
@@ -41,7 +33,6 @@
     assign media_width = 0.45
   endif
 -%}
-
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
@@ -58,10 +49,14 @@
     </a>
     <ul
       id="Slider-Gallery-{{ section.id }}"
-      class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile max-md:min-h-[450px] overflow-y-hidden"
+      class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"
       role="list"
     >
       {%- if product.selected_or_first_available_variant.featured_media != null -%}
+        Expand Down
+
+        Expand Up @@ -126,28 +126,32 @@
+
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
         <li
           id="Slide-{{ section.id }}-{{ featured_media.id }}"
@@ -93,11 +88,10 @@
         %}
           {% continue %}
         {% endif %}
-
         {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
           <li
             id="Slide-{{ section.id }}-{{ media.id }}"
-            class="product__media-item grid__item slider__slide md:!w-full md:max-w-full {% if single_media_visible %} product__media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == nil and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            class="product__media-item grid__item slider__slide{% if single_media_visible %} product__media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == nil and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             data-media-id="{{ section.id }}-{{ media.id }}"
           >
             {%- liquid
@@ -126,35 +120,33 @@
       {%- endfor -%}
     </ul>
     <div class="px-6 !justify-between slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
-      {% comment %}
-        <button
-          type="button"
-          class="slider-button slider-button--prev"
-          name="previous"
-          aria-label="{{ 'general.slider.previous_slide' | t }}"
-        >
-          {% render 'icon-arrow-left' %}
-        </button>
-      {% endcomment %}
+      <button
+        type="button"
+        class="slider-button slider-button--prev"
+        name="previous"
+        aria-label="{{ 'general.slider.previous_slide' | t }}"
+      >
+        {% render 'icon-arrow-left' %}
+      </button>
       <div class="slider-counter text-[12px]">
         <span class="slider-counter--current">1</span>
         <span aria-hidden="true"> / </span>
         <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
         <span class="slider-counter--total">{{ media_count }}</span>
       </div>
-      {% comment %}
-        <button
-          type="button"
-          class="slider-button slider-button--next"
-          name="next"
-          aria-label="{{ 'general.slider.next_slide' | t }}"
-        >
-          {% render 'icon-arrow-right' %}
-        </button>
-      {% endcomment %}
+      <button
+        type="button"
+        class="slider-button slider-button--next"
+        name="next"
+        aria-label="{{ 'general.slider.next_slide' | t }}"
+      >
+        {% render 'icon-arrow-right' %}
+      </button>
     </div>
   </slider-component>
   {%- if first_3d_model -%}
+    Expand Down
+
     <button
       class="button button--full-width product__xr-button"
       type="button"
@@ -203,7 +195,6 @@
           (min-width: 750px) calc((100vw - 15rem) / 8),
           calc((100vw - 8rem) / 3)
         {%- endcapture -%}
-
         {%- if featured_media != null -%}
           {%- liquid
             capture media_index
