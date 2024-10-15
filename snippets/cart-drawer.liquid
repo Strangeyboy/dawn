@@ -31,7 +31,7 @@
         <div class="drawer__inner-empty">
           <div class="cart-drawer__warnings center{% if settings.cart_drawer_collection != blank %} cart-drawer__warnings--has-collection{% endif %}">
             <div class="cart-drawer__empty-content">
-              <h2 class="cart__empty-text text-[60px] leading-[55px] !text-black">
+              <h2 class="cart__empty-text text-[60px] leading-[55px] !text-black text-balance">
                 {{ 'sections.cart.empty' | t }}
               </h2>
               <button
@@ -599,9 +599,11 @@
                 {%- endif -%}
               {% endcomment %}
             </small>
-            <small class="max-md:!mt-[6px] tax-note caption-large rte text-[#8E8E8E] max-w-[50%] !text-[11px] md:!text-[14px]">
-              Import Duties Paid
-            </small>
+            {% comment %}
+              <small class="max-md:!mt-[6px] tax-note caption-large rte text-[#8E8E8E] max-w-[50%] !text-[11px] md:!text-[14px]">
+                Import Duties Paid
+              </small>
+            {% endcomment %}
           </div>
         </div>
 

@@ -38,7 +38,9 @@
     </div>
 
     <div class="cart__warnings">
-      <h1 class="cart__empty-text text-[60px] leading-[55px] !text-black">{{ 'sections.cart.empty' | t }}</h1>
+      <h1 class="cart__empty-text text-[60px] leading-[55px] !text-black text-balance">
+        {{ 'sections.cart.empty' | t }}
+      </h1>
       <a
         href="/collections/products{% comment %} {{ routes.all_products_collection_url }} {% endcomment %}"
         class="button uppercase"
@@ -90,7 +92,7 @@
                       {% if item.image %}
                         {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                         <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
-                        <div class="cart-item__image-container gradient global-media-settings !bg-[#EDEDED]">
+                        <div class="cart-item__image-container gradient global-media-settings !bg-[#EDEDED] w-[107px] h-[132px] md:!w-[145px] md:!h-[180px] flex !items-center !border-none">
                           <img
                             src="{{ item.image | image_url: width: 300 }}"
                             class="cart-item__image"
@@ -246,7 +248,7 @@
                                 {% render 'icon-info' %}
                               </button>
                             {%- endif -%}
-                            <quantity-input class="quantity cart-quantity">
+                            <quantity-input class="quantity cart-quantity !rounded-[10px] border border-stone-300 max-w-[90px] md:max-w-[114px] flex justify-between max-md:min-h-[42px]">
                               <button class="quantity__button" name="minus" type="button">
                                 <span class="visually-hidden">
                                   {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
@@ -254,7 +256,7 @@
                                 {% render 'icon-minus' %}
                               </button>
                               <input
-                                class="quantity__input"
+                                class="quantity__input max-md:!text-[12px] text-center"
                                 data-quantity-variant-id="{{ item.variant.id }}"
                                 type="number"
                                 name="updates[]"

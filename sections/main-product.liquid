@@ -898,6 +898,113 @@
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        console.log('DOM fully loaded and parsed');
+
+        function updateInventoryVisibility() {
+          const swatchLabel = document.querySelector('.swatch-label');
+          const productInventory = document.querySelector('.product__inventory');
+
+          // Adding extra checks for null or undefined states
+          if (!swatchLabel || !productInventory) {
+            console.log('Elements not found, retrying...');
+            setTimeout(updateInventoryVisibility, 500); // Retry after 500ms
+            return;
+          } else {
+            console.log('Elements found. Setting up the observer.');
+          }
+
+          // Function to check and apply visibility changes based on label text
+          function checkLabelAndSetVisibility() {
+            // Ensure the text includes 'Select a Size' and there's no selected variant signaling change
+            if (swatchLabel.textContent.trim() === 'Select a Size') {
+              console.log("Label says 'Select a Size'. Hiding inventory.");
+              productInventory.style.display = 'none';
+            } else {
+              console.log('Label has changed. Showing inventory.');
+              productInventory.style.display = '';
+            }
+          }
+
+          // Set up MutationObserver to react to changes in the swatch label
+          const observer = new MutationObserver(function (mutations) {
+            console.log('Mutation observed.');
+            mutations.forEach(function (mutation) {
+              if (mutation.type === 'characterData' || mutation.type === 'childList') {
+                console.log('Relevant mutation detected.');
+                checkLabelAndSetVisibility();
+              }
+            });
+          });
+
+          observer.observe(swatchLabel, {
+            characterData: true,
+            childList: true,
+            subtree: true,
+          });
+
+          // Initial label text check
+          checkLabelAndSetVisibility();
+        }
+
+        // Start checking immediately
+        updateInventoryVisibility();
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Check if the body has the class 'product-page'
+        if (document.body.classList.contains('product-page')) {
+          console.log('Product page detected.');
+
+          const checkGroupChildren = () => {
+            const topGroup = document.querySelector('[sa-group-position="top"]');
+            const middleGroup = document.querySelector('[sa-options-position="default"]');
+            const bottomGroup = document.querySelector('[sa-group-position="bottom"]');
+
+            // Check how many children each of these groups have
+            const topChildrenCount = topGroup ? topGroup.children.length : 0;
+            const middleChildrenCount = middleGroup ? middleGroup.children.length : 0;
+            const bottomChildrenCount = bottomGroup ? bottomGroup.children.length : 0;
+
+{% comment %}             console.log(`Top group children: ${topChildrenCount}`);
+            console.log(`Middle group children: ${middleChildrenCount}`);
+            console.log(`Bottom group children: ${bottomChildrenCount}`); {% endcomment %}
+
+            // Find the element with the class 'product__inventory'
+            const productInventory = document.querySelector('.product__inventory');
+
+            if (productInventory) {
+              // Applying classes based on children count
+              if (topChildrenCount === 1 && middleChildrenCount === 0 && bottomChildrenCount === 0) {
+                // console.log('Exactly one variant detected in top group.');
+                productInventory.classList.add('one-variant');
+                productInventory.classList.remove('multiple-variants');
+              } else {
+                // console.log('More than one or no variants detected.');
+                productInventory.classList.add('multiple-variants');
+                productInventory.classList.remove('one-variant');
+              }
+            } else {
+              //console.log('Product inventory element not found.');
+            }
+          };
+
+          // Run the check function immediately and then check every 500 milliseconds until the conditions are met
+          checkGroupChildren();
+          const variantCheckInterval = setInterval(checkGroupChildren, 500);
+
+          // Optionally, stop checking after a certain amount of time (e.g., 10 seconds)
+          setTimeout(() => {
+            clearInterval(variantCheckInterval);
+            ///console.log('Stopped checking for variants after timeout.');
+          }, 10000); // Stop after 10 seconds
+        } else {
+          //console.log('Not on the product page.');
+        }
+      });
+    </script>
   </div>
 </product-info>
 

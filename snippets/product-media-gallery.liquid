@@ -53,10 +53,6 @@
       role="list"
     >
       {%- if product.selected_or_first_available_variant.featured_media != null -%}
-        Expand Down
-
-        Expand Up @@ -126,28 +126,32 @@
-
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
         <li
           id="Slide-{{ section.id }}-{{ featured_media.id }}"
@@ -91,7 +87,7 @@
         {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
           <li
             id="Slide-{{ section.id }}-{{ media.id }}"
-            class="product__media-item grid__item slider__slide{% if single_media_visible %} product__media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == nil and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            class="product__media-item grid__item md:!w-full md:max-w-full slider__slide{% if single_media_visible %} product__media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == nil and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             data-media-id="{{ section.id }}-{{ media.id }}"
           >
             {%- liquid
@@ -122,7 +118,7 @@
     <div class="px-6 !justify-between slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
       <button
         type="button"
-        class="slider-button slider-button--prev"
+        class="slider-button slider-button--prev hidden"
         name="previous"
         aria-label="{{ 'general.slider.previous_slide' | t }}"
       >
@@ -136,7 +132,7 @@
       </div>
       <button
         type="button"
-        class="slider-button slider-button--next"
+        class="slider-button slider-button--next hidden"
         name="next"
         aria-label="{{ 'general.slider.next_slide' | t }}"
       >
@@ -145,8 +141,6 @@
     </div>
   </slider-component>
   {%- if first_3d_model -%}
-    Expand Down
-
     <button
       class="button button--full-width product__xr-button"
       type="button"
