@@ -1476,5 +1476,42 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Free Shipping",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Free Shipping Settings"
+      },
+      {
+        "type": "text",
+        "id": "default_threshold",
+        "label": "Default Threshold",
+        "info": "Default free shipping threshold",
+        "default": "160"
+      },
+      {
+        "type": "text",
+        "id": "default_currency",
+        "label": "Default Currency Symbol",
+        "default": "£",
+        "info": "Default currency symbol if not specified for a country or currency"
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_message",
+        "label": "Message Template",
+        "default": "Free shipping on orders over [symbol][threshold]",
+        "info": "Use [threshold] to insert the threshold amount"
+      },
+      {
+        "type": "textarea",
+        "id": "shipping_settings",
+        "label": "Shipping Settings",
+        "info": "Enter country code or currency code, threshold, and currency symbol in the format 'US:200:$', 'CA:180:CA$', 'EUR:100:€'. One per line. Use currency codes like 'EUR' to apply to all countries using that currency.",
+        "default": "US:200:$\nCA:180:CA$\nGB:150:£\nEUR:100:€"
+      }
+    ]
   }
 ]
