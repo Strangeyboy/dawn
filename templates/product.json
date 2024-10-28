@@ -20,6 +20,11 @@
           "settings": {
           }
         },
+        "swatch_king_product_swatch_block_FpxMKp": {
+          "type": "shopify:\/\/apps\/swatch-king\/blocks\/product-swatch-block\/0850b1e4-ba30-4a0d-a8f4-f9a939276d7d",
+          "settings": {
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -84,6 +89,7 @@
         "title",
         "caption",
         "price",
+        "swatch_king_product_swatch_block_FpxMKp",
         "variant_picker",
         "quantity_selector",
         "inventory_DmRpE4",

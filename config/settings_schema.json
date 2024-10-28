@@ -1510,7 +1510,7 @@
         "id": "shipping_settings",
         "label": "Shipping Settings",
         "info": "Enter country code or currency code, threshold, and currency symbol in the format 'US:200:$', 'CA:180:CA$', 'EUR:100:€'. One per line. Use currency codes like 'EUR' to apply to all countries using that currency.",
-        "default": "US:200:$\nCA:180:CA$\nGB:150:£\nEUR:100:€"
+        "default": "US:160:£\nCA:160:£\nGB:160:£\nEUR:160:£"
       }
     ]
   }

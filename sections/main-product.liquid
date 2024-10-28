@@ -97,7 +97,7 @@
                   <div class="flex flex-col justify-between w-full bg-white max-md:rounded-[16px] max-md:p-6 max-md:!mb-[2px]">
                     <div class="flex flex-row justify-between w-full items-end md:mb-8">
                       <div class="product__title !mb-0" {{ block.shopify_attributes }}>
-                        <h1 class="text-[18px] md:text-[30px] max-w-[310px] text-balance leading-[99.2%] tracking-[-0.36px] md:tracking-[-0.9px]">
+                        <h1 class="text-[20px] md:text-[30px] max-w-[310px] text-balance leading-[99.2%] tracking-[-0.36px] md:tracking-[-0.9px]">
                           {{ product.title | escape }}
                         </h1>
                         <a href="{{ product.url }}" class="product__title">
@@ -958,52 +958,50 @@
       document.addEventListener('DOMContentLoaded', function () {
         // Check if the body has the class 'product-page'
         if (document.body.classList.contains('product-page')) {
-          console.log('Product page detected.');
+          // console.log('Product page detected.');
 
-          const checkGroupChildren = () => {
-            const topGroup = document.querySelector('[sa-group-position="top"]');
-            const middleGroup = document.querySelector('[sa-options-position="default"]');
-            const bottomGroup = document.querySelector('[sa-group-position="bottom"]');
+          const checkVariantSwatchKingElements = () => {
+            // Select all <variant-swatch-king> elements
+            const variantSwatchKings = document.querySelectorAll('variant-swatch-king');
 
-            // Check how many children each of these groups have
-            const topChildrenCount = topGroup ? topGroup.children.length : 0;
-            const middleChildrenCount = middleGroup ? middleGroup.children.length : 0;
-            const bottomChildrenCount = bottomGroup ? bottomGroup.children.length : 0;
+            // Filter elements that have child nodes
+            const variantSwatchKingsWithChildren = Array.from(variantSwatchKings).filter(function (element) {
+              return element.children.length > 0;
+            });
 
-{% comment %}             console.log(`Top group children: ${topChildrenCount}`);
-            console.log(`Middle group children: ${middleChildrenCount}`);
-            console.log(`Bottom group children: ${bottomChildrenCount}`); {% endcomment %}
+            // Get the count of elements with children
+            const variantSwatchKingCount = variantSwatchKingsWithChildren.length;
 
             // Find the element with the class 'product__inventory'
             const productInventory = document.querySelector('.product__inventory');
 
             if (productInventory) {
-              // Applying classes based on children count
-              if (topChildrenCount === 1 && middleChildrenCount === 0 && bottomChildrenCount === 0) {
-                // console.log('Exactly one variant detected in top group.');
+              // Applying classes based on the count
+              if (variantSwatchKingCount === 1) {
+                // Exactly one <variant-swatch-king> element with children detected
                 productInventory.classList.add('one-variant');
                 productInventory.classList.remove('multiple-variants');
               } else {
-                // console.log('More than one or no variants detected.');
+                // More than one or no <variant-swatch-king> elements with children detected
                 productInventory.classList.add('multiple-variants');
                 productInventory.classList.remove('one-variant');
               }
             } else {
-              //console.log('Product inventory element not found.');
+              // console.log('Product inventory element not found.');
             }
           };
 
           // Run the check function immediately and then check every 500 milliseconds until the conditions are met
-          checkGroupChildren();
-          const variantCheckInterval = setInterval(checkGroupChildren, 500);
+          checkVariantSwatchKingElements();
+          const variantCheckInterval = setInterval(checkVariantSwatchKingElements, 500);
 
           // Optionally, stop checking after a certain amount of time (e.g., 10 seconds)
           setTimeout(() => {
             clearInterval(variantCheckInterval);
-            ///console.log('Stopped checking for variants after timeout.');
+            // console.log('Stopped checking for variants after timeout.');
           }, 10000); // Stop after 10 seconds
         } else {
-          //console.log('Not on the product page.');
+          // console.log('Not on the product page.');
         }
       });
     </script>
