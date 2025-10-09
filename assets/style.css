@@ -390,6 +390,14 @@ variant-swatch-king {
     .swatch-single {
         @apply max-md:mb-[2px] max-md:mt-[0px] mb-6;
     }
+
+    .swatch-image-wrapper {
+        @apply !p-0 !rounded-md;
+
+        &:has(.swatch-selected) {
+            @apply !border-none;
+        }
+    }
 }
 
 .swatch-view.swatch-view-button {

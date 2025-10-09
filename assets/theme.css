@@ -685,6 +685,17 @@ variant-swatch-king {
       margin-top: 0px;
     }
   }
+  .swatch-image-wrapper {
+    border-radius: 0.375rem !important;
+  }
+  .swatch-image-wrapper {
+    padding: 0 !important;
+  }
+  .swatch-image-wrapper {
+    &:has(.swatch-selected) {
+      border-style: none !important;
+    }
+  }
 }
 
 .swatch-view.swatch-view-button {
