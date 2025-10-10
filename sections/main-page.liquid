@@ -14,13 +14,13 @@
   }
 {%- endstyle -%}
 
-<div class="!pt-0 page-width page-width--narrow overflow-x-hidden section-{{ section.id }}-padding">
+<div class="!pt-0 page-width page-width--narrow section-{{ section.id }}-padding">
   <h1 class="main-page-title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     {{ page.title | escape }}
   </h1>
   <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {% if page.metafields.custom.countdown_timer != blank %}
-      <div class="max-h-svh h-svh !mt-[-104px] md:!mt-[-140px] flex flex-col justify-between">
+      <div class="min-h-screen !mt-[-104px] md:!mt-[-140px] flex flex-col justify-between">
         <span>&nbsp;</span>
         <div class="countdown-timer animate__animated animate__fadeIn">
           <video autoplay muted loop playsinline preload="auto">
