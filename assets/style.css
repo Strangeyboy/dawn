@@ -562,6 +562,11 @@ variant-swatch-king {
     @apply md:overflow-hidden;
 }
 
+/* hide button border shopify challenge */
+.button:after, .shopify-challenge__button:after, .customer button:after, .shopify-payment-button__button--unbranded:after {
+    box-shadow: none !important;
+}
+
 /* cart page */
 .quantity:after {
     @apply !rounded-full;
@@ -705,7 +710,7 @@ body.page-about {
         max-width: 1110px;
 
         video {
-            @apply pt-[32px] md:pt-[80px] max-md:absolute max-md:left-0 max-md:right-0 max-md:scale-125	;
+            @apply md:pt-[80px] max-md:absolute max-md:left-0 max-md:right-0 max-md:scale-125	;
         }
     }
 

@@ -1027,6 +1027,12 @@ variant-swatch-king {
   }
 }
 
+/* hide button border shopify challenge */
+
+.button:after, .shopify-challenge__button:after, .customer button:after, .shopify-payment-button__button--unbranded:after {
+  box-shadow: none !important;
+}
+
 /* cart page */
 
 .quantity:after {
@@ -1273,9 +1279,6 @@ body.page-about {
   #countup-timer,
     .countdown-timer {
     max-width: 1110px;
-    video {
-      padding-top: 32px;
-    }
     @media not all and (min-width: 768px) {
       video {
         position: absolute;
@@ -3386,10 +3389,6 @@ video {
 }
 
 .pt-8 {
-  padding-top: 32px;
-}
-
-.pt-\[32px\] {
   padding-top: 32px;
 }
 
