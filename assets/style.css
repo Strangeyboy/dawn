@@ -388,7 +388,7 @@ variant-swatch-king {
 
     .swatches,
     .swatch-single {
-        @apply max-md:mb-[2px] max-md:mt-[0px] mb-6;
+        @apply max-md:mb-[2px] max-md:!mt-[0px] mb-6;
     }
 
     .swatch-image-wrapper {
@@ -451,7 +451,9 @@ variant-swatch-king {
 }
 
 .shopify-block.shopify-app-block:not(#shopify-block-swatch_king_product_swatch_block_FpxMKp) {
-    @apply bg-white max-md:px-6;
+    .swatch-single.swatch-preset-875286 {
+        @apply bg-white max-md:px-6 max-md:rounded-[16px];
+    }
 }
 
 /* out of stock button */

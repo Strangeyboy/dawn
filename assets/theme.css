@@ -682,7 +682,7 @@ variant-swatch-king {
   @media not all and (min-width: 768px) {
     .swatches,
     .swatch-single {
-      margin-top: 0px;
+      margin-top: 0px !important;
     }
   }
   .swatch-image-wrapper {
@@ -801,14 +801,20 @@ variant-swatch-king {
 }
 
 .shopify-block.shopify-app-block:not(#shopify-block-swatch_king_product_swatch_block_FpxMKp) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-@media not all and (min-width: 768px) {
-  .shopify-block.shopify-app-block:not(#shopify-block-swatch_king_product_swatch_block_FpxMKp) {
-    padding-left: 24px;
-    padding-right: 24px;
+  .swatch-single.swatch-preset-875286 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+  @media not all and (min-width: 768px) {
+    .swatch-single.swatch-preset-875286 {
+      border-radius: 16px;
+    }
+  }
+  @media not all and (min-width: 768px) {
+    .swatch-single.swatch-preset-875286 {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
   }
 }
 
@@ -3859,6 +3865,10 @@ video {
     margin-top: -25px !important;
   }
 
+  .max-md\:\!mt-\[0px\] {
+    margin-top: 0px !important;
+  }
+
   .max-md\:\!mt-\[6px\] {
     margin-top: 6px !important;
   }
@@ -3869,10 +3879,6 @@ video {
 
   .max-md\:mt-\[-5px\] {
     margin-top: -5px;
-  }
-
-  .max-md\:mt-\[0px\] {
-    margin-top: 0px;
   }
 
   .max-md\:hidden {
