@@ -18,6 +18,7 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/innerpace_cover2.png",
+        "mobile_image": "shopify:\/\/shop_images\/innerpace_home_sml_78362c28-263f-4427-a3e7-e3cb3512575d.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "desktop_content_position": "bottom-left",
