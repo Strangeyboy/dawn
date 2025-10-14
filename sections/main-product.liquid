@@ -834,7 +834,7 @@
               <div class="w-full flex justify-center mt-3">
                 <img
                   src="{{ product.metafields.size_guide.image | file_url }}"
-                  width="238"
+                  width="{{ product.metafields.size_guide.image_w | default: 238 }}"
                   height="..."
                   alt="Size guide diagram"
                 >
