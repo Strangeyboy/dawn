@@ -1260,6 +1260,9 @@ body.page-about {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(205 255 165 / var(--tw-text-opacity));
+  main {
+    overflow-x: hidden;
+  }
   h1,
     h2,
     h3,

@@ -695,6 +695,10 @@ body.page-about {
     --animation-order: 3;
     @apply bg-black text-[#CDFFA5] overflow-x-hidden;
 
+    main {
+        @apply overflow-x-hidden;
+    }
+
     h1,
     h2,
     h3,
