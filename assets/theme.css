@@ -1255,6 +1255,7 @@ product-recommendations .card__content:not(.card__inner-content) .card__informat
 
 body.page-about {
   --animation-order: 3;
+  overflow-x: hidden;
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;

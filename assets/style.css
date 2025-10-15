@@ -693,7 +693,7 @@ product-recommendations .card__content:not(.card__inner-content) .card__informat
 /* about page */
 body.page-about {
     --animation-order: 3;
-    @apply bg-black text-[#CDFFA5];
+    @apply bg-black text-[#CDFFA5] overflow-x-hidden;
 
     h1,
     h2,
