@@ -193,7 +193,10 @@
                 -%}
               </a>
             {%- endif -%}
-            {%- if localization.available_countries or localization.available_languages -%}
+            {%- if localization.available_countries
+              or localization.available_languages
+              or section.settings.enable_currency_selector_mobile
+            -%}
               <div class="menu-drawer__localization header-localization">
                 {%- if localization.available_countries and localization.available_countries.size > 1 -%}
                   <localization-form>
@@ -207,6 +210,13 @@
                     {%- endform -%}
                   </localization-form>
                 {% endif %}
+
+                {%- if section.settings.enable_currency_selector_mobile -%}
+                  {%- comment -%} Currency Selector for Mobile {%- endcomment -%}
+                  <div class="menu-drawer__currency">
+                    {% render 'currency-selector' %}
+                  </div>
+                {%- endif -%}
 
                 {%- if localization.available_languages and localization.available_languages.size > 1 -%}
                   <localization-form>

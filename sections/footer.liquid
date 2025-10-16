@@ -203,6 +203,11 @@
                             {%- endform -%}
                           </localization-form>
                         {%- endif -%}
+                        {%- if block.settings.show_currency_selector -%}
+                          <li class="footer-block__currency-item">
+                            {% render 'currency-selector' %}
+                          </li>
+                        {%- endif -%}
                       </ul>
                     {%- endif -%}
                   {%- when 'brand_information' -%}
@@ -283,6 +288,13 @@
               </div>
             {%- endform -%}
           </localization-form>
+        {%- endif -%}
+
+        {%- if section.settings.enable_currency_selector -%}
+          {%- comment -%} Currency Selector {%- endcomment -%}
+          <div class="footer__currency">
+            {% render 'currency-selector' %}
+          </div>
         {%- endif -%}
 
         {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
@@ -366,6 +378,12 @@
           "default": "footer",
           "label": "t:sections.footer.blocks.link_list.settings.menu.label",
           "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_currency_selector",
+          "default": false,
+          "label": "Show currency selector"
         }
       ]
     },
@@ -535,6 +553,17 @@
       "id": "enable_language_selector",
       "default": true,
       "label": "t:sections.footer.settings.enable_language_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "Currency Selector",
+      "info": "Show currency converter in footer"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_currency_selector",
+      "default": true,
+      "label": "Enable currency selector"
     },
     {
       "type": "header",
