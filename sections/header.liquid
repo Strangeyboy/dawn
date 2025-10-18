@@ -232,6 +232,13 @@
 
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       <div class="desktop-localization-wrapper">
+        {%- if section.settings.enable_currency_selector -%}
+          {%- comment -%} Currency Selector {%- endcomment -%}
+          <div class="small-hide medium-hide">
+            {% render 'currency-selector' %}
+          </div>
+        {%- endif -%}
+
 {% comment %}         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <localization-form class="small-hide medium-hide" data-prevent-hide>
             {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
@@ -619,6 +626,23 @@
       "id": "enable_language_selector",
       "default": true,
       "label": "t:sections.header.settings.enable_language_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "Currency Selector",
+      "info": "Show currency converter in header and mobile menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_currency_selector",
+      "default": false,
+      "label": "Enable currency selector in header"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_currency_selector_mobile",
+      "default": true,
+      "label": "Enable currency selector in mobile menu"
     },
     {
       "type": "header",

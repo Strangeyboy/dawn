@@ -1,0 +1,45 @@
+{% comment %}
+  Renders a currency selector dropdown
+
+  Usage:
+  {% render 'currency-selector' %}
+{% endcomment %}
+
+<link
+  rel="stylesheet"
+  href="{{ 'component-currency-selector.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'"
+>
+<noscript>{{ 'component-currency-selector.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="currency-selector-wrapper">
+  <label class="visually-hidden">
+    {{- 'general.currency.select' | t | default: 'Select Currency' -}}
+  </label>
+  <div class="currency-selector-container">
+    <select
+      class="currency-selector"
+      aria-label="{{ 'general.currency.select' | t | default: 'Select Currency' }}"
+    >
+      <option value="GBP">GBP (£)</option>
+      <option value="USD">USD ($)</option>
+      <option value="EUR">EUR (€)</option>
+      <option value="AUD">AUD (A$)</option>
+      <option value="NZD">NZD (NZ$)</option>
+      <option value="CNY">CNY (¥)</option>
+      <option value="JPY">JPY (¥)</option>
+      <option value="AED">AED (د.إ)</option>
+    </select>
+    <svg
+      class="currency-selector-icon"
+      width="10"
+      height="6"
+      viewBox="0 0 10 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</div>

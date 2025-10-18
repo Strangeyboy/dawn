@@ -50,6 +50,10 @@
       "share_url": "Link",
       "success_message": "Link copied to clipboard"
     },
+    "currency": {
+      "select": "Select Currency",
+      "disclaimer": "Prices shown are estimates in your local currency. Checkout will be in GBP."
+    },
     "slider": {
       "of": "of",
       "next_slide": "Slide right",
