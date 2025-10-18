@@ -52,7 +52,8 @@
     },
     "currency": {
       "select": "Select Currency",
-      "disclaimer": "Prices shown are estimates in your local currency. Checkout will be in GBP."
+      "disclaimer": "Prices shown are estimates in your local currency. Checkout will be in GBP.",
+      "cart_conversion_notice": "You'll be charged at the current exchange rate in GBP. Prices shown in"
     },
     "slider": {
       "of": "of",

@@ -63,6 +63,13 @@
                   <p class="totals__total-value">{{ cart.total_price | money_without_trailing_zeros }}</p>
                 </div>
 
+                <div class="currency-conversion-notice !mt-3 !mb bg-[#f8f8f8] px-3 py-2" style="display: none;">
+                  <small class="caption-large rte" style="color: #8E8E8E;">
+                    {{ 'general.currency.cart_conversion_notice' | t }}
+                    <span class="display-currency"></span> are estimates.
+                  </small>
+                </div>
+
                 <small class="tax-note caption-large rte">
                   {%- if cart.duties_included and cart.taxes_included -%}
                     {%- if shop.shipping_policy.body == blank -%}

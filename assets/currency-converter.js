@@ -97,6 +97,9 @@ class CurrencyConverter {
       // Convert all prices on page
       this.convertAllPrices();
 
+      // Update currency conversion notice
+      this.updateCurrencyNotice();
+
       // Setup event listeners
       this.setupEventListeners();
 
@@ -488,6 +491,30 @@ class CurrencyConverter {
 
     // Update currency selector if it exists
     this.updateCurrencySelector();
+
+    // Update currency conversion notice
+    this.updateCurrencyNotice();
+  }
+
+  /**
+   * Update currency conversion notice visibility and text
+   */
+  updateCurrencyNotice() {
+    const notices = document.querySelectorAll('.currency-conversion-notice');
+
+    notices.forEach((notice) => {
+      if (this.currentCurrency !== this.baseCurrency) {
+        // Show notice and update currency
+        const currencySpan = notice.querySelector('.display-currency');
+        if (currencySpan) {
+          currencySpan.textContent = this.currentCurrency;
+        }
+        notice.style.display = '';
+      } else {
+        // Hide notice when showing base currency
+        notice.style.display = 'none';
+      }
+    });
   }
 
   /**
@@ -556,6 +583,9 @@ class CurrencyConverter {
 
     // Update all dropdowns to match (with force to ensure it sticks)
     this.forceUpdateCurrencySelector();
+
+    // Update currency conversion notice
+    this.updateCurrencyNotice();
 
     // Trigger custom event for other components
     window.dispatchEvent(
@@ -627,6 +657,7 @@ class CurrencyConverter {
           delete el.dataset.converted;
         });
         this.convertAllPrices();
+        this.updateCurrencyNotice();
       }, 100);
     });
 
@@ -660,6 +691,16 @@ class CurrencyConverter {
               if (priceElements && priceElements.length > 0) {
                 setTimeout(() => {
                   priceElements.forEach((el) => this.convertPriceElement(el));
+                }, 50);
+              }
+
+              // Check if cart drawer or currency notice was added
+              const currencyNotice =
+                node.classList?.contains('currency-conversion-notice') ||
+                node.querySelector?.('.currency-conversion-notice');
+              if (currencyNotice) {
+                setTimeout(() => {
+                  this.updateCurrencyNotice();
                 }, 50);
               }
             }

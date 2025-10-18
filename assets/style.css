@@ -441,7 +441,7 @@ variant-swatch-king {
 /* logic for inventory for single variant products */
 
 .one-variant {
-    @apply max-md:rounded-t-[16px] pt-6;
+    @apply max-md:rounded-t-[16px] pt-6 bg-white rounded-none;
 }
 
 @media screen and (min-width: 768px) {
@@ -454,6 +454,10 @@ variant-swatch-king {
     .swatch-single.swatch-preset-875286 {
         @apply bg-white max-md:px-6 max-md:rounded-[16px];
     }
+}
+
+#shopify-block-AQmZDMzVXMzF2NlE4M__stok_back_in_stock_alerts_app_block_FAmgeh {
+    @apply bg-white max-md:px-6;
 }
 
 /* out of stock button */
@@ -660,7 +664,7 @@ product-recommendations .card__content:not(.card__inner-content) .card__informat
     @apply !flex items-center justify-center !relative !top-0;
 }
 
-.cart-item__totals.right {
+.cart-drawer .cart-item__totals.right {
     @apply !hidden;
 }
 

@@ -18,7 +18,8 @@
           "settings": {
             "col_span": "col-span-6 md:col-start-9 md:col-span-2",
             "heading": "",
-            "menu": "social-links"
+            "menu": "social-links",
+            "show_currency_selector": false
           }
         },
         "footer-1": {
@@ -26,7 +27,8 @@
           "settings": {
             "col_span": "col-span-6 md:col-span-2",
             "heading": "",
-            "menu": "footer"
+            "menu": "footer",
+            "show_currency_selector": true
           }
         }
       },
@@ -43,6 +45,7 @@
         "show_social": false,
         "enable_country_selector": true,
         "enable_language_selector": false,
+        "enable_currency_selector": true,
         "payment_enable": false,
         "show_policy": false,
         "margin_top": 0,

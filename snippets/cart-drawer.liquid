@@ -554,6 +554,12 @@
               {{ cart.total_price | money_without_trailing_zeros }}
             </p>
           </div>
+          <div class="currency-conversion-notice !mt-3 bg-[#f8f8f8] px-3 py-2" style="display: none;">
+            <small class="text-[#8E8E8E] !text-[11px] md:!text-[14px]">
+              {{ 'general.currency.cart_conversion_notice' | t }}
+              <span class="display-currency"></span> are estimates.
+            </small>
+          </div>
           <div
             class="flex flex-row !mt-0"
           >
