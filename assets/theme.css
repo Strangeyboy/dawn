@@ -2321,6 +2321,10 @@ video {
   margin-top: 8px !important;
 }
 
+.\!mt-3 {
+  margin-top: 12px !important;
+}
+
 .\!mt-6 {
   margin-top: 24px !important;
 }
@@ -2423,10 +2427,6 @@ video {
 
 .mt-\[98px\] {
   margin-top: 98px;
-}
-
-.\!mt-3 {
-  margin-top: 12px !important;
 }
 
 .\!block {
@@ -3113,6 +3113,11 @@ video {
   background-color: rgb(241 241 241 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#f8f8f8\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 248 248 / var(--tw-bg-opacity));
+}
+
 .bg-\[white\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -3140,11 +3145,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#f8f8f8\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 248 248 / var(--tw-bg-opacity));
 }
 
 .bg-contain {
@@ -3229,6 +3229,11 @@ video {
   padding-right: 80px;
 }
 
+.px-3 {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
 .px-4 {
   padding-left: 16px;
   padding-right: 16px;
@@ -3269,6 +3274,11 @@ video {
   padding-bottom: 64px;
 }
 
+.py-2 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
 .py-3 {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -3287,16 +3297,6 @@ video {
 .py-\[14px\] {
   padding-top: 14px;
   padding-bottom: 14px;
-}
-
-.px-3 {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
-.py-2 {
-  padding-top: 8px;
-  padding-bottom: 8px;
 }
 
 .\!pb-0 {
