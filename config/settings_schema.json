@@ -1314,6 +1314,82 @@
     ]
   },
   {
+    "name": "Free Shipping & Currency",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Free Shipping Thresholds"
+      },
+      {
+        "type": "paragraph",
+        "content": "Set free shipping thresholds for each currency. Enter the amount in that currency (e.g., 60 for USD = $60). Use -1 to hide the message for that currency. Use 0 to show free shipping on all orders."
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_message",
+        "label": "Free shipping message",
+        "default": "Free shipping on orders over [symbol][threshold]",
+        "info": "Use [symbol] for currency symbol and [threshold] for amount"
+      },
+      {
+        "type": "number",
+        "id": "threshold_gbp",
+        "label": "GBP (£) Threshold",
+        "default": 50,
+        "info": "Enter amount (e.g., 50 = £50), 0 = free on all orders, -1 = hide message"
+      },
+      {
+        "type": "number",
+        "id": "threshold_usd",
+        "label": "USD ($) Threshold",
+        "default": 60,
+        "info": "Enter amount (e.g., 60 = $60), 0 = free on all orders, -1 = hide message"
+      },
+      {
+        "type": "number",
+        "id": "threshold_eur",
+        "label": "EUR (€) Threshold",
+        "default": 50,
+        "info": "Enter amount (e.g., 50 = €50), 0 = free on all orders, -1 = hide message"
+      },
+      {
+        "type": "number",
+        "id": "threshold_aud",
+        "label": "AUD (A$) Threshold",
+        "default": 100,
+        "info": "Enter amount (e.g., 100 = A$100), 0 = free on all orders, -1 = hide message"
+      },
+      {
+        "type": "number",
+        "id": "threshold_nzd",
+        "label": "NZD (NZ$) Threshold",
+        "default": 100,
+        "info": "Enter amount (e.g., 100 = NZ$100), 0 = free on all orders, -1 = hide message"
+      },
+      {
+        "type": "number",
+        "id": "threshold_cny",
+        "label": "CNY (¥) Threshold",
+        "default": -1,
+        "info": "Enter amount, 0 = free on all orders, -1 = hide message"
+      },
+      {
+        "type": "number",
+        "id": "threshold_jpy",
+        "label": "JPY (¥) Threshold",
+        "default": 5000,
+        "info": "Enter amount (e.g., 5000 = ¥5,000), 0 = free on all orders, -1 = hide message"
+      },
+      {
+        "type": "number",
+        "id": "threshold_aed",
+        "label": "AED (د.إ) Threshold",
+        "default": -1,
+        "info": "Enter amount, 0 = free on all orders, -1 = hide message"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.social-media.name",
     "settings": [
       {
@@ -1474,43 +1550,6 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
-      }
-    ]
-  },
-  {
-    "name": "Free Shipping",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Free Shipping Settings"
-      },
-      {
-        "type": "text",
-        "id": "default_threshold",
-        "label": "Default Threshold",
-        "info": "Default free shipping threshold",
-        "default": "160"
-      },
-      {
-        "type": "text",
-        "id": "default_currency",
-        "label": "Default Currency Symbol",
-        "default": "£",
-        "info": "Default currency symbol if not specified for a country or currency"
-      },
-      {
-        "type": "text",
-        "id": "free_shipping_message",
-        "label": "Message Template",
-        "default": "Free shipping on orders over [symbol][threshold]",
-        "info": "Use [threshold] to insert the threshold amount"
-      },
-      {
-        "type": "textarea",
-        "id": "shipping_settings",
-        "label": "Shipping Settings",
-        "info": "Enter country code or currency code, threshold, and currency symbol in the format 'US:200:$', 'CA:180:CA$', 'EUR:100:€'. One per line. Use currency codes like 'EUR' to apply to all countries using that currency.",
-        "default": "US:160:£\nCA:160:£\nGB:160:£\nEUR:160:£"
       }
     ]
   }

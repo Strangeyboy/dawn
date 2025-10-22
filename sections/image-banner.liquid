@@ -168,7 +168,7 @@
           {%- when 'heading' -%}
             <div class="flex justify-between w-full flex-row !mb-[40px] md:!mb-[32px] items-end grid grid-cols-2 max-md:!gap-[25px]">
               <h2
-                class="col-span-2 md:col-span-1 banner__heading inline-richtext max-md:!leading-[24px] md:!leading-[28.5px] !max-w-[544px] {{ block.settings.heading_size }}"
+                class="col-span-2 md:col-span-1 banner__heading inline-richtext max-md:!leading-[24px] md:!leading-[28.5px] !max-w-[544px] max-md:!hidden {{ block.settings.heading_size }}"
                 {{ block.shopify_attributes }}
               >
                 {{ block.settings.heading }}

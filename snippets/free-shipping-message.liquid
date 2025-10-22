@@ -1,105 +1,79 @@
-{% assign current_country = localization.country.iso_code %}
-{% assign current_currency = cart.currency.iso_code | default: shop.currency %}
-{% assign threshold = null %}
-{% assign currency_symbol = null %}
-{% assign setting_found = false %}
-
 {% comment %}
-  Split the shipping settings into lines
+  Free shipping message that integrates with currency converter
+  Thresholds are set per currency in Theme Settings
 {% endcomment %}
-{% capture newline %}
-{% endcapture %}
-{% assign shipping_settings = settings.shipping_settings | split: newline %}
 
-{% comment %}
-  Prepare a list of country and currency settings
-{% endcomment %}
-{% assign country_settings = '' %}
-{% assign currency_settings = '' %}
-{% for setting_line in shipping_settings %}
-  {% assign setting_line = setting_line | strip %}
-  {% if setting_line != '' %}
-    {% assign setting_parts = setting_line | split: ':' %}
-    {% if setting_parts.size == 3 %}
-      {% assign code = setting_parts[0] | upcase %}
-      {% assign threshold_value = setting_parts[1] %}
-      {% assign symbol = setting_parts[2] %}
-      {% if code.size == 2 %}
-        {% comment %}
-          Country code (ISO 3166-1 alpha-2 code)
-        {% endcomment %}
-        {% assign country_settings = country_settings
-          | append: code
-          | append: '|'
-          | append: threshold_value
-          | append: '|'
-          | append: symbol
-          | append: ','
-        %}
-      {% else %}
-        {% comment %}
-          Assume it's a currency code
-        {% endcomment %}
-        {% assign currency_settings = currency_settings
-          | append: code
-          | append: '|'
-          | append: threshold_value
-          | append: '|'
-          | append: symbol
-          | append: ','
-        %}
-      {% endif %}
-    {% endif %}
-  {% endif %}
-{% endfor %}
+{%- assign message_id = 'free-shipping-message' -%}
+{%- if section -%}
+  {%- assign message_id = 'free-shipping-message-' | append: section.id -%}
+{%- endif -%}
 
-{% comment %}
-  Split the settings into arrays
-{% endcomment %}
-{% assign country_settings = country_settings | split: ',' %}
-{% assign currency_settings = currency_settings | split: ',' %}
+<p id="{{ message_id }}" class="free-shipping-message" style="display: none;">
+  <span class="shipping-threshold-text"></span>
+</p>
 
-{% comment %}
-  Check for country-specific threshold
-{% endcomment %}
-{% for setting in country_settings %}
-  {% assign setting_parts = setting | split: '|' %}
-  {% if setting_parts[0] == current_country %}
-    {% assign threshold = setting_parts[1] %}
-    {% assign currency_symbol = setting_parts[2] %}
-    {% assign setting_found = true %}
-    {% break %}
-  {% endif %}
-{% endfor %}
+<script>
+  // Free shipping message with currency converter integration
+  (function () {
+    const messageEl = document.getElementById('{{ message_id }}');
+    if (!messageEl) return;
 
-{% unless setting_found %}
-  {% comment %}
-    Check for currency-specific threshold
-  {% endcomment %}
-  {% for setting in currency_settings %}
-    {% assign setting_parts = setting | split: '|' %}
-    {% if setting_parts[0] == current_currency %}
-      {% assign threshold = setting_parts[1] %}
-      {% assign currency_symbol = setting_parts[2] %}
-      {% assign setting_found = true %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
-{% endunless %}
+    // Thresholds from theme settings
+    // -1 = hide message, 0 = free on all orders, >0 = threshold amount
+    const thresholds = {
+      GBP: {{ settings.threshold_gbp | default: -1 }},
+      USD: {{ settings.threshold_usd | default: -1 }},
+      EUR: {{ settings.threshold_eur | default: -1 }},
+      AUD: {{ settings.threshold_aud | default: -1 }},
+      NZD: {{ settings.threshold_nzd | default: -1 }},
+      CNY: {{ settings.threshold_cny | default: -1 }},
+      JPY: {{ settings.threshold_jpy | default: -1 }},
+      AED: {{ settings.threshold_aed | default: -1 }},
+    };
 
-{% unless setting_found %}
-  {% comment %}
-    Use default threshold and currency symbol
-  {% endcomment %}
-  {% assign threshold = settings.default_threshold %}
-  {% assign currency_symbol = settings.default_currency %}
-{% endunless %}
+    // Message template from settings
+    const messageTemplate = '{{ settings.free_shipping_message | default: "Free shipping on orders over [symbol][threshold]" }}';
 
-{% comment %}
-  Output the free shipping message
-{% endcomment %}
-{% if setting_found %}
-  <p id="free-shipping-message" class="free-shipping-message">
-    {{ settings.free_shipping_message | replace: '[threshold]', threshold | replace: '[symbol]', currency_symbol }}
-  </p>
-{% endif %}
+    function updateShippingMessage() {
+      if (!window.currencyConverter) {
+        setTimeout(updateShippingMessage, 100);
+        return;
+      }
+
+      const currency = window.currencyConverter.getCurrentCurrency();
+      const threshold = thresholds[currency];
+
+      // Hide if threshold is undefined, null, or negative (use -1 to hide)
+      if (threshold === undefined || threshold === null || threshold < 0) {
+        messageEl.style.display = 'none';
+        return;
+      }
+
+      const symbol = window.currencyConverter.getCurrencySymbol(currency);
+
+      // Format threshold with commas for thousands
+      const formattedAmount = threshold.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+      // Update message
+      let message = messageTemplate;
+      message = message.replace('[threshold]', formattedAmount);
+      message = message.replace('[symbol]', symbol);
+
+      const textEl = messageEl.querySelector('.shipping-threshold-text');
+      if (textEl) {
+        textEl.textContent = message;
+        messageEl.style.display = '';
+      }
+    }
+
+    // Update on currency change
+    window.addEventListener('currency:changed', updateShippingMessage);
+
+    // Initial update
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateShippingMessage);
+    } else {
+      setTimeout(updateShippingMessage, 500);
+    }
+  })();
+</script>

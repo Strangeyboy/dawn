@@ -16,16 +16,25 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   background-color: transparent;
-  border: 1px solid rgba(var(--color-foreground), 0.2);
-  border-radius: 4px;
-  padding: 8px 32px 8px 12px;
-  font-size: 14px;
+  padding: 0px !important;
+  font-size: 16px !important;
   font-family: var(--font-body-family);
   color: rgba(var(--color-foreground), 0.75);
   cursor: pointer;
   outline: none;
   transition: all 0.2s ease;
   min-width: 120px;
+
+  @media (max-width: 749px) {
+    color: rgb(var(--color-foreground));
+    font-size: 14px !important;
+  }
+}
+
+.currency-selector-container {
+  svg {
+    display: none !important;
+  }
 }
 
 .currency-selector:hover {
@@ -64,8 +73,7 @@
 
 /* Mobile drawer placement */
 .menu-drawer__currency {
-  padding: 0 2rem;
-  margin-top: 1rem;
+  margin-top: 6px;
   margin-bottom: 1.5rem;
 }
 
@@ -89,7 +97,7 @@
 
 /* Footer menu block currency item */
 .footer-block__currency-item {
-  margin-top: 1rem;
+  margin-top: 6px;
   list-style: none;
 }
 

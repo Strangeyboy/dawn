@@ -1286,6 +1286,9 @@ a.product__text {
 
 .product-media-container .media {
   padding-top: var(--ratio-percent);
+  @media (max-width: 749px) {
+    padding-top: 110%;
+  }
 }
 
 .product-media-container.constrain-height .media {
