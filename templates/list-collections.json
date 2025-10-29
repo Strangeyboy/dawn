@@ -1,15 +1,12 @@
 {
+  "name": "List collections",
   "sections": {
-    "main": {
-      "type": "main-list-collections",
-      "settings": {
-        "title": "Collections",
-        "sort": "alphabetical",
-        "image_ratio": "square"
-      }
+    "redirect": {
+      "type": "redirect-to-home",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "redirect"
   ]
 }

@@ -1,0 +1,14 @@
+{% comment %}
+  Section: redirect-to-home
+  Purpose: Immediately redirect this page to another URL.
+  Edit the target in the <script> and <meta> below.
+{% endcomment %}
+<div aria-hidden="true"></div>
+<meta http-equiv="refresh" content="0; url=/">
+<script>
+  // Hard redirect. Change "/" if you want a different target.
+  window.location.replace('/');
+</script>
+<noscript>
+  <a href="/">Continue</a>
+</noscript>
