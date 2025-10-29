@@ -441,7 +441,7 @@ variant-swatch-king {
 /* logic for inventory for single variant products */
 
 .one-variant {
-    @apply max-md:rounded-t-[16px] pt-6 bg-white rounded-none;
+    @apply pt-6 bg-white rounded-none;
 }
 
 @media screen and (min-width: 768px) {
@@ -456,11 +456,13 @@ variant-swatch-king {
     }
 }
 
-#shopify-block-AQmZDMzVXMzF2NlE4M__stok_back_in_stock_alerts_app_block_FAmgeh {
-    @apply bg-white max-md:px-6;
-}
-
 /* out of stock button */
+#bis_notify_me_btn.box-3 {
+    @apply max-md:px-4 bg-white;
+    @media screen and (max-width: 768px) {
+       max-width: initial !important;
+    }
+}
 #bis_container, #thank-you-section {
     @apply !rounded-[20px] !w-full max-w-[564px] relative;
     @media screen and (min-width: 500px) {
@@ -517,7 +519,7 @@ variant-swatch-king {
 }
 .bis_ui_button,
 #submit-btn__bis, #bis-close-btn-container #bis-close-btn {
-    @apply rounded-full uppercase w-full !text-[16px] md:text-[18px] h-[60px] !font-[ABCFavorit] !tracking-[0.36px];
+    @apply rounded-full uppercase w-full !text-[16px] md:text-[18px] h-[58px] !font-[ABCFavorit] !tracking-[0.36px];
 }
 
 #shopeetech-bis-popup-form-name,

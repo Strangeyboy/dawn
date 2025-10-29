@@ -790,13 +790,6 @@ variant-swatch-king {
   padding-top: 24px;
 }
 
-@media not all and (min-width: 768px) {
-  .one-variant {
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-  }
-}
-
 @media screen and (min-width: 768px) {
   .swatch-label.swatch-label-button {
     font-size: 16px !important;
@@ -821,19 +814,25 @@ variant-swatch-king {
   }
 }
 
-#shopify-block-AQmZDMzVXMzF2NlE4M__stok_back_in_stock_alerts_app_block_FAmgeh {
+/* out of stock button */
+
+#bis_notify_me_btn.box-3 {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 @media not all and (min-width: 768px) {
-  #shopify-block-AQmZDMzVXMzF2NlE4M__stok_back_in_stock_alerts_app_block_FAmgeh {
-    padding-left: 24px;
-    padding-right: 24px;
+  #bis_notify_me_btn.box-3 {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
-/* out of stock button */
+#bis_notify_me_btn.box-3 {
+  @media screen and (max-width: 768px) {
+    max-width: initial !important;
+  }
+}
 
 #bis_container, #thank-you-section {
   position: relative;
@@ -933,7 +932,7 @@ variant-swatch-king {
 
 .bis_ui_button,
 #submit-btn__bis, #bis-close-btn-container #bis-close-btn {
-  height: 60px;
+  height: 58px;
   width: 100%;
   border-radius: 9999px;
   font-family: ABCFavorit !important;
@@ -2561,6 +2560,10 @@ video {
   height: 44px;
 }
 
+.h-\[58px\] {
+  height: 58px;
+}
+
 .h-\[60px\] {
   height: 60px;
 }
@@ -2596,6 +2599,10 @@ video {
 
 .\!min-h-\[initial\] {
   min-height: initial !important;
+}
+
+.\!min-h-screen {
+  min-height: 100vh !important;
 }
 
 .min-h-screen {
@@ -4030,6 +4037,11 @@ video {
   .max-md\:\!px-\[10px\] {
     padding-left: 10px !important;
     padding-right: 10px !important;
+  }
+
+  .max-md\:px-4 {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .max-md\:px-6 {
