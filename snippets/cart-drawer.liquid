@@ -557,14 +557,12 @@
           <div class="currency-conversion-notice !mt-3 bg-[#f8f8f8] px-3 py-2" style="display: none;">
             <small class="text-[#8E8E8E] !text-[11px] md:!text-[14px]">
               {{ 'general.currency.cart_conversion_notice' | t }}
-              <span class="display-currency"></span> are estimates.
             </small>
           </div>
           <div
             class="flex flex-row !mt-0"
           >
             <small class="max-md:!mt-[6px] tax-note caption-large rte text-[#8E8E8E] max-w-[50%] !ml-0 !text-[11px] md:!text-[14px]">
-              Delivery fee (if applicable) will be calculated at checkout.
               {% comment %}
                 {%- if cart.duties_included and cart.taxes_included -%}
                   {%- if shop.shipping_policy.body == blank -%}

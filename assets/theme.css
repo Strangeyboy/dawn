@@ -2392,6 +2392,10 @@ video {
   margin-left: 24px;
 }
 
+.ml-\[30px\] {
+  margin-left: 30px;
+}
+
 .mr-8 {
   margin-right: 32px;
 }
